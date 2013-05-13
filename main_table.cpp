@@ -186,14 +186,14 @@ bool main_table::check_square(const int data,const int i,const int f)//проверка 
 	case 0:{il=0;ir=3;}break;
 	case 1:{il=3;ir=6;}break;
 	case 2:{il=6;ir=9;};break;
-			 default:{il=6;ir=9;}
+	default:{il=6;ir=9;}
 	}
 	switch (f/3)
 	{
 	case 0:{fl=0;fr=3;}break;
 	case 1:{fl=3;fr=6;}break;
 	case 2:{fl=6;fr=9;};break;
-			 default:{fl=6;fr=9;}
+	default:{fl=6;fr=9;}
 	}
 
 	for(int j=il;j<ir;j++)
@@ -209,26 +209,43 @@ bool main_table::check_square(const int data,const int i,const int f)//проверка 
 	return 0;
 }
 
-bool main_table::user_input(const int data,const int i,const int f)//запись  данных в основную и вспомогательную таблицы 
+char main_table::user_input(const char a,const int i,const int f)//запись  данных в основную и вспомогательную таблицы 
 {
+	char k;
+
 	if(ref_arr[i][f]==1)
 	{
-		return 1;
+		k=arr[i][f]+48;
+		return k;
+	}
+
+	int data;
+
+	if((a<49)||(a>57))
+	{
+		k=NULL;
+		return k;
 	}
 	else
 	{
-		if(check_retries(data,i,f))
-		{
-			ref_arr[i][f]=-1;
-
-		}
-		else
-		{
-			ref_arr[i][f]=2;
-		}
-		arr[i][f]=data;
+		data=a-48;
 	}
-	return 0;
+
+
+	if(check_retries(data,i,f))
+	{
+		k=NULL;
+		return k;
+
+	}
+	else
+	{
+		arr[i][f]=data;
+		ref_arr[i][f]=2;
+		k=data+48;
+		return k;
+	}
+
 }
 bool main_table::chack_all()// проверяет всю вспомогательную таблицу на потоврение и заполнение. 
 {
@@ -243,4 +260,8 @@ bool main_table::chack_all()// проверяет всю вспомогательную таблицу на потоврен
 		}
 	}
 	return 0;
+}
+int main_table::get_arr(int i,int f)
+{
+	return arr[i][f];
 }
