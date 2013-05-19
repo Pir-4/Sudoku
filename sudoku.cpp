@@ -1,23 +1,16 @@
-/*#include<iostream>
-#include<conio.h>
-#include<fstream>
-#include<string>
-#include"main_table.h"
-#include "Sudoku_frame.h"
-using namespace std;
-
-
-using namespace sudoku;
-
-
-[STAThreadAttribute]
-int main(array<System::String ^> ^args)
-{
-	// Enabling Windows XP visual effects before any controls are created
-	Application::EnableVisualStyles();
-	Application::SetCompatibleTextRenderingDefault(false); 
-
-	// Create the main window and run it
-	Application::Run(gcnew Sudoku_frame);
-	return 0;
-}*/
+ /*#include<conio.h>
+ #include<math.h>
+ #include<fstream>
+  #include<string>
+ #include"main_table.h"
+ using namespace std;
+ 
+ void main()
+ {
+     main_table C;
+ C.input(2);
+ string s=C.get_arr(0,0);
+ cout<<s;
+   _getch();
+   
+ }*/
