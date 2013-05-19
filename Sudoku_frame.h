@@ -1,5 +1,5 @@
 #pragma once
-
+#include"main_table.h"
 namespace sudoku {
 
 	using namespace System;
@@ -14,11 +14,16 @@ namespace sudoku {
 	/// </summary>
 	public ref class Sudokuframe : public System::Windows::Forms::Form
 	{
+		main_table* C;
 	public:
+		 
 		Sudokuframe(void)
 		{
 			InitializeComponent();
-			
+			main_table *newc= new main_table();
+			C=newc;
+			int n=rand()%129;
+			C->input(n);
 		}
 
 	protected:
@@ -27,13 +32,14 @@ namespace sudoku {
 		/// </summary>
 		~Sudokuframe()
 		{
+			C->~main_table();
 			if (components)
 			{
 				delete components;
 			}
 		}
+
 	private: System::Windows::Forms::TextBox^  textBox1;
-	protected: 
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::TextBox^  textBox3;
 	private: System::Windows::Forms::TextBox^  textBox4;
@@ -115,9 +121,6 @@ namespace sudoku {
 	private: System::Windows::Forms::TextBox^  textBox80;
 	private: System::Windows::Forms::TextBox^  textBox81;
 
-	protected: 
-
-	protected: 
 
 	private:
 		/// <summary>
@@ -1131,6 +1134,10 @@ namespace sudoku {
 private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 		 }
 private: System::Void Sudokuframe_Load(System::Object^  sender, System::EventArgs^  e) {
+			 textBox1->TextAlign = HorizontalAlignment::Center;
+			 
+			textBox1->Text=char(C->get_arr(0,0));
+			 textBox54->Text="4";
 		 }
 };
 }

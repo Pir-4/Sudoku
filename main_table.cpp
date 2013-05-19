@@ -35,6 +35,11 @@ main_table::~main_table(void)//уничтожение главного и проверочного массива
 
 void main_table::input(int nlevel)//ввод начальных значений в основной и проверочный массивы
 {
+	if(nlevel>129)
+	{
+		int k=nlevel/129;
+		nlevel=nlevel-129*k;
+	}
 	ifstream infile ("Maps.txt", ios::in);
 	for(int f=1;f<nlevel;f++)
 	{
