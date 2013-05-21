@@ -29,6 +29,7 @@ namespace sudoku {
 			C=newc;
 			srand(time(NULL));
 			int n=rand()%129;
+			//n=1;
 			C->input(n);
 		}
 
@@ -431,6 +432,7 @@ namespace sudoku {
 			this->textBox13->TabIndex = 14;
 			this->textBox13->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox13->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox13_TextChanged);
+			this->textBox13->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox13_KeyPress);
 			// 
 			// textBox14
 			// 
@@ -446,6 +448,7 @@ namespace sudoku {
 			this->textBox14->TabIndex = 13;
 			this->textBox14->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox14->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox14_TextChanged);
+			this->textBox14->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox14_KeyPress);
 			// 
 			// textBox15
 			// 
@@ -461,6 +464,7 @@ namespace sudoku {
 			this->textBox15->TabIndex = 12;
 			this->textBox15->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox15->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox15_TextChanged);
+			this->textBox15->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox15_KeyPress);
 			// 
 			// textBox16
 			// 
@@ -476,6 +480,7 @@ namespace sudoku {
 			this->textBox16->TabIndex = 11;
 			this->textBox16->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox16->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox16_TextChanged);
+			this->textBox16->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox16_KeyPress);
 			// 
 			// textBox17
 			// 
@@ -491,6 +496,7 @@ namespace sudoku {
 			this->textBox17->TabIndex = 10;
 			this->textBox17->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox17->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox17_TextChanged);
+			this->textBox17->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox17_KeyPress);
 			// 
 			// textBox18
 			// 
@@ -506,6 +512,7 @@ namespace sudoku {
 			this->textBox18->TabIndex = 9;
 			this->textBox18->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox18->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox18_TextChanged);
+			this->textBox18->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox18_KeyPress);
 			// 
 			// textBox19
 			// 
@@ -521,6 +528,7 @@ namespace sudoku {
 			this->textBox19->TabIndex = 26;
 			this->textBox19->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox19->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox19_TextChanged);
+			this->textBox19->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox19_KeyPress);
 			// 
 			// textBox20
 			// 
@@ -536,6 +544,7 @@ namespace sudoku {
 			this->textBox20->TabIndex = 25;
 			this->textBox20->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox20->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox20_TextChanged);
+			this->textBox20->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox20_KeyPress);
 			// 
 			// textBox21
 			// 
@@ -551,6 +560,7 @@ namespace sudoku {
 			this->textBox21->TabIndex = 24;
 			this->textBox21->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox21->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox21_TextChanged);
+			this->textBox21->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox21_KeyPress);
 			// 
 			// textBox22
 			// 
@@ -566,6 +576,7 @@ namespace sudoku {
 			this->textBox22->TabIndex = 23;
 			this->textBox22->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox22->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox22_TextChanged);
+			this->textBox22->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox22_KeyPress);
 			// 
 			// textBox23
 			// 
@@ -581,6 +592,7 @@ namespace sudoku {
 			this->textBox23->TabIndex = 22;
 			this->textBox23->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox23->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox23_TextChanged);
+			this->textBox23->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox23_KeyPress);
 			// 
 			// textBox24
 			// 
@@ -596,6 +608,7 @@ namespace sudoku {
 			this->textBox24->TabIndex = 21;
 			this->textBox24->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox24->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox24_TextChanged);
+			this->textBox24->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox24_KeyPress);
 			// 
 			// textBox25
 			// 
@@ -603,7 +616,7 @@ namespace sudoku {
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->textBox25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
-			this->textBox25->Location = System::Drawing::Point(430, 110);
+			this->textBox25->Location = System::Drawing::Point(330, 110);
 			this->textBox25->MaxLength = 1;
 			this->textBox25->Multiline = true;
 			this->textBox25->Name = L"textBox25";
@@ -611,6 +624,7 @@ namespace sudoku {
 			this->textBox25->TabIndex = 20;
 			this->textBox25->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox25->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox25_TextChanged);
+			this->textBox25->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox25_KeyPress);
 			// 
 			// textBox26
 			// 
@@ -626,6 +640,7 @@ namespace sudoku {
 			this->textBox26->TabIndex = 19;
 			this->textBox26->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox26->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox26_TextChanged);
+			this->textBox26->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox26_KeyPress);
 			// 
 			// textBox27
 			// 
@@ -633,7 +648,7 @@ namespace sudoku {
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
 			this->textBox27->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
-			this->textBox27->Location = System::Drawing::Point(330, 110);
+			this->textBox27->Location = System::Drawing::Point(430, 110);
 			this->textBox27->MaxLength = 1;
 			this->textBox27->Multiline = true;
 			this->textBox27->Name = L"textBox27";
@@ -641,6 +656,7 @@ namespace sudoku {
 			this->textBox27->TabIndex = 18;
 			this->textBox27->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox27->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox27_TextChanged);
+			this->textBox27->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox27_KeyPress);
 			// 
 			// textBox28
 			// 
@@ -656,6 +672,7 @@ namespace sudoku {
 			this->textBox28->TabIndex = 35;
 			this->textBox28->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox28->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox28_TextChanged);
+			this->textBox28->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox28_KeyPress);
 			// 
 			// textBox29
 			// 
@@ -671,6 +688,7 @@ namespace sudoku {
 			this->textBox29->TabIndex = 34;
 			this->textBox29->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox29->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox29_TextChanged);
+			this->textBox29->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox29_KeyPress);
 			// 
 			// textBox30
 			// 
@@ -686,6 +704,7 @@ namespace sudoku {
 			this->textBox30->TabIndex = 33;
 			this->textBox30->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox30->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox30_TextChanged);
+			this->textBox30->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox30_KeyPress);
 			// 
 			// textBox31
 			// 
@@ -701,6 +720,7 @@ namespace sudoku {
 			this->textBox31->TabIndex = 32;
 			this->textBox31->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox31->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox31_TextChanged);
+			this->textBox31->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox31_KeyPress);
 			// 
 			// textBox32
 			// 
@@ -716,6 +736,7 @@ namespace sudoku {
 			this->textBox32->TabIndex = 31;
 			this->textBox32->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox32->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox32_TextChanged);
+			this->textBox32->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox32_KeyPress);
 			// 
 			// textBox33
 			// 
@@ -731,6 +752,7 @@ namespace sudoku {
 			this->textBox33->TabIndex = 30;
 			this->textBox33->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox33->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox33_TextChanged);
+			this->textBox33->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox33_KeyPress);
 			// 
 			// textBox34
 			// 
@@ -746,6 +768,7 @@ namespace sudoku {
 			this->textBox34->TabIndex = 29;
 			this->textBox34->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox34->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox34_TextChanged);
+			this->textBox34->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox34_KeyPress);
 			// 
 			// textBox35
 			// 
@@ -761,6 +784,7 @@ namespace sudoku {
 			this->textBox35->TabIndex = 28;
 			this->textBox35->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox35->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox35_TextChanged);
+			this->textBox35->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox35_KeyPress);
 			// 
 			// textBox36
 			// 
@@ -776,6 +800,7 @@ namespace sudoku {
 			this->textBox36->TabIndex = 27;
 			this->textBox36->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox36->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox36_TextChanged);
+			this->textBox36->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox36_KeyPress);
 			// 
 			// textBox37
 			// 
@@ -791,6 +816,7 @@ namespace sudoku {
 			this->textBox37->TabIndex = 44;
 			this->textBox37->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox37->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox37_TextChanged);
+			this->textBox37->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox37_KeyPress);
 			// 
 			// textBox38
 			// 
@@ -806,6 +832,7 @@ namespace sudoku {
 			this->textBox38->TabIndex = 43;
 			this->textBox38->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox38->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox38_TextChanged);
+			this->textBox38->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox38_KeyPress);
 			// 
 			// textBox39
 			// 
@@ -821,6 +848,7 @@ namespace sudoku {
 			this->textBox39->TabIndex = 42;
 			this->textBox39->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox39->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox39_TextChanged);
+			this->textBox39->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox39_KeyPress);
 			// 
 			// textBox40
 			// 
@@ -836,6 +864,7 @@ namespace sudoku {
 			this->textBox40->TabIndex = 41;
 			this->textBox40->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox40->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox40_TextChanged);
+			this->textBox40->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox40_KeyPress);
 			// 
 			// textBox41
 			// 
@@ -851,6 +880,7 @@ namespace sudoku {
 			this->textBox41->TabIndex = 40;
 			this->textBox41->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox41->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox41_TextChanged);
+			this->textBox41->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox41_KeyPress);
 			// 
 			// textBox42
 			// 
@@ -866,6 +896,7 @@ namespace sudoku {
 			this->textBox42->TabIndex = 39;
 			this->textBox42->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox42->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox42_TextChanged);
+			this->textBox42->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox42_KeyPress);
 			// 
 			// textBox43
 			// 
@@ -881,6 +912,7 @@ namespace sudoku {
 			this->textBox43->TabIndex = 38;
 			this->textBox43->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox43->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox43_TextChanged);
+			this->textBox43->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox43_KeyPress);
 			// 
 			// textBox44
 			// 
@@ -896,6 +928,7 @@ namespace sudoku {
 			this->textBox44->TabIndex = 37;
 			this->textBox44->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox44->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox44_TextChanged);
+			this->textBox44->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox44_KeyPress);
 			// 
 			// textBox45
 			// 
@@ -911,6 +944,7 @@ namespace sudoku {
 			this->textBox45->TabIndex = 36;
 			this->textBox45->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox45->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox45_TextChanged);
+			this->textBox45->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox45_KeyPress);
 			// 
 			// textBox46
 			// 
@@ -926,6 +960,7 @@ namespace sudoku {
 			this->textBox46->TabIndex = 53;
 			this->textBox46->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox46->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox46_TextChanged);
+			this->textBox46->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox46_KeyPress);
 			// 
 			// textBox47
 			// 
@@ -941,6 +976,7 @@ namespace sudoku {
 			this->textBox47->TabIndex = 52;
 			this->textBox47->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox47->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox47_TextChanged);
+			this->textBox47->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox47_KeyPress);
 			// 
 			// textBox48
 			// 
@@ -956,6 +992,7 @@ namespace sudoku {
 			this->textBox48->TabIndex = 51;
 			this->textBox48->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox48->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox48_TextChanged);
+			this->textBox48->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox48_KeyPress);
 			// 
 			// textBox49
 			// 
@@ -971,6 +1008,7 @@ namespace sudoku {
 			this->textBox49->TabIndex = 50;
 			this->textBox49->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox49->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox49_TextChanged);
+			this->textBox49->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox49_KeyPress);
 			// 
 			// textBox50
 			// 
@@ -986,6 +1024,7 @@ namespace sudoku {
 			this->textBox50->TabIndex = 49;
 			this->textBox50->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox50->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox50_TextChanged);
+			this->textBox50->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox50_KeyPress);
 			// 
 			// textBox51
 			// 
@@ -1001,6 +1040,7 @@ namespace sudoku {
 			this->textBox51->TabIndex = 48;
 			this->textBox51->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox51->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox51_TextChanged);
+			this->textBox51->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox51_KeyPress);
 			// 
 			// textBox52
 			// 
@@ -1016,6 +1056,7 @@ namespace sudoku {
 			this->textBox52->TabIndex = 47;
 			this->textBox52->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox52->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox52_TextChanged);
+			this->textBox52->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox52_KeyPress);
 			// 
 			// textBox53
 			// 
@@ -1031,6 +1072,7 @@ namespace sudoku {
 			this->textBox53->TabIndex = 46;
 			this->textBox53->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox53->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox53_TextChanged);
+			this->textBox53->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox53_KeyPress);
 			// 
 			// textBox54
 			// 
@@ -1046,6 +1088,7 @@ namespace sudoku {
 			this->textBox54->TabIndex = 45;
 			this->textBox54->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox54->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox54_TextChanged);
+			this->textBox54->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox54_KeyPress);
 			// 
 			// textBox55
 			// 
@@ -1061,6 +1104,7 @@ namespace sudoku {
 			this->textBox55->TabIndex = 62;
 			this->textBox55->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox55->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox55_TextChanged);
+			this->textBox55->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox55_KeyPress);
 			// 
 			// textBox56
 			// 
@@ -1076,6 +1120,7 @@ namespace sudoku {
 			this->textBox56->TabIndex = 61;
 			this->textBox56->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox56->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox56_TextChanged);
+			this->textBox56->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox56_KeyPress);
 			// 
 			// textBox57
 			// 
@@ -1091,6 +1136,7 @@ namespace sudoku {
 			this->textBox57->TabIndex = 60;
 			this->textBox57->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox57->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox57_TextChanged);
+			this->textBox57->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox57_KeyPress);
 			// 
 			// textBox58
 			// 
@@ -1106,6 +1152,7 @@ namespace sudoku {
 			this->textBox58->TabIndex = 59;
 			this->textBox58->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox58->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox58_TextChanged);
+			this->textBox58->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox58_KeyPress);
 			// 
 			// textBox59
 			// 
@@ -1121,6 +1168,7 @@ namespace sudoku {
 			this->textBox59->TabIndex = 58;
 			this->textBox59->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox59->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox59_TextChanged);
+			this->textBox59->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox59_KeyPress);
 			// 
 			// textBox60
 			// 
@@ -1136,6 +1184,7 @@ namespace sudoku {
 			this->textBox60->TabIndex = 57;
 			this->textBox60->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox60->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox60_TextChanged);
+			this->textBox60->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox60_KeyPress);
 			// 
 			// textBox61
 			// 
@@ -1151,6 +1200,7 @@ namespace sudoku {
 			this->textBox61->TabIndex = 56;
 			this->textBox61->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox61->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox61_TextChanged);
+			this->textBox61->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox61_KeyPress);
 			// 
 			// textBox62
 			// 
@@ -1166,6 +1216,7 @@ namespace sudoku {
 			this->textBox62->TabIndex = 55;
 			this->textBox62->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox62->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox62_TextChanged);
+			this->textBox62->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox62_KeyPress);
 			// 
 			// textBox63
 			// 
@@ -1181,6 +1232,7 @@ namespace sudoku {
 			this->textBox63->TabIndex = 54;
 			this->textBox63->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox63->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox63_TextChanged);
+			this->textBox63->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox63_KeyPress);
 			// 
 			// textBox64
 			// 
@@ -1196,6 +1248,7 @@ namespace sudoku {
 			this->textBox64->TabIndex = 71;
 			this->textBox64->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox64->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox64_TextChanged);
+			this->textBox64->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox64_KeyPress);
 			// 
 			// textBox65
 			// 
@@ -1211,6 +1264,7 @@ namespace sudoku {
 			this->textBox65->TabIndex = 70;
 			this->textBox65->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox65->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox65_TextChanged);
+			this->textBox65->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox65_KeyPress);
 			// 
 			// textBox66
 			// 
@@ -1226,6 +1280,7 @@ namespace sudoku {
 			this->textBox66->TabIndex = 69;
 			this->textBox66->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox66->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox66_TextChanged);
+			this->textBox66->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox66_KeyPress);
 			// 
 			// textBox67
 			// 
@@ -1241,6 +1296,7 @@ namespace sudoku {
 			this->textBox67->TabIndex = 68;
 			this->textBox67->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox67->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox67_TextChanged);
+			this->textBox67->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox67_KeyPress);
 			// 
 			// textBox68
 			// 
@@ -1256,6 +1312,7 @@ namespace sudoku {
 			this->textBox68->TabIndex = 67;
 			this->textBox68->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox68->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox68_TextChanged);
+			this->textBox68->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox68_KeyPress);
 			// 
 			// textBox69
 			// 
@@ -1271,6 +1328,7 @@ namespace sudoku {
 			this->textBox69->TabIndex = 66;
 			this->textBox69->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox69->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox69_TextChanged);
+			this->textBox69->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox69_KeyPress);
 			// 
 			// textBox70
 			// 
@@ -1286,6 +1344,7 @@ namespace sudoku {
 			this->textBox70->TabIndex = 65;
 			this->textBox70->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox70->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox70_TextChanged);
+			this->textBox70->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox70_KeyPress);
 			// 
 			// textBox71
 			// 
@@ -1301,6 +1360,7 @@ namespace sudoku {
 			this->textBox71->TabIndex = 64;
 			this->textBox71->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox71->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox71_TextChanged);
+			this->textBox71->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox71_KeyPress);
 			// 
 			// textBox72
 			// 
@@ -1316,6 +1376,7 @@ namespace sudoku {
 			this->textBox72->TabIndex = 63;
 			this->textBox72->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox72->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox72_TextChanged);
+			this->textBox72->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox72_KeyPress);
 			// 
 			// textBox73
 			// 
@@ -1331,6 +1392,7 @@ namespace sudoku {
 			this->textBox73->TabIndex = 80;
 			this->textBox73->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox73->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox73_TextChanged);
+			this->textBox73->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox73_KeyPress);
 			// 
 			// textBox74
 			// 
@@ -1346,6 +1408,7 @@ namespace sudoku {
 			this->textBox74->TabIndex = 79;
 			this->textBox74->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox74->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox74_TextChanged);
+			this->textBox74->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox74_KeyPress);
 			// 
 			// textBox75
 			// 
@@ -1361,6 +1424,7 @@ namespace sudoku {
 			this->textBox75->TabIndex = 78;
 			this->textBox75->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox75->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox75_TextChanged);
+			this->textBox75->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox75_KeyPress);
 			// 
 			// textBox76
 			// 
@@ -1376,6 +1440,7 @@ namespace sudoku {
 			this->textBox76->TabIndex = 77;
 			this->textBox76->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox76->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox76_TextChanged);
+			this->textBox76->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox76_KeyPress);
 			// 
 			// textBox77
 			// 
@@ -1391,6 +1456,7 @@ namespace sudoku {
 			this->textBox77->TabIndex = 76;
 			this->textBox77->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox77->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox77_TextChanged);
+			this->textBox77->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox77_KeyPress);
 			// 
 			// textBox78
 			// 
@@ -1406,6 +1472,7 @@ namespace sudoku {
 			this->textBox78->TabIndex = 75;
 			this->textBox78->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox78->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox78_TextChanged);
+			this->textBox78->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox78_KeyPress);
 			// 
 			// textBox79
 			// 
@@ -1421,6 +1488,7 @@ namespace sudoku {
 			this->textBox79->TabIndex = 74;
 			this->textBox79->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox79->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox79_TextChanged);
+			this->textBox79->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox79_KeyPress);
 			// 
 			// textBox80
 			// 
@@ -1436,6 +1504,7 @@ namespace sudoku {
 			this->textBox80->TabIndex = 73;
 			this->textBox80->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox80->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox80_TextChanged);
+			this->textBox80->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox80_KeyPress);
 			// 
 			// textBox81
 			// 
@@ -1451,6 +1520,7 @@ namespace sudoku {
 			this->textBox81->TabIndex = 72;
 			this->textBox81->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox81->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox81_TextChanged);
+			this->textBox81->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox81_KeyPress);
 			// 
 			// Sudokuframe
 			// 
@@ -1667,6 +1737,497 @@ namespace sudoku {
 
 
 			 }
+	private: System::Void textBox13_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox14_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox15_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox16_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox17_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox18_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox19_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox20_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox21_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox22_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox23_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox24_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox25_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox26_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox27_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox28_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox29_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox30_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox31_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox32_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+			 }
+	private: System::Void textBox33_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox34_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox35_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox36_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox37_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox38_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox39_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox40_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox41_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox42_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox43_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox44_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox45_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox46_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox47_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox48_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox49_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox50_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox51_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox52_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox53_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox54_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox55_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox56_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox57_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox58_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox59_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox60_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox61_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox62_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox63_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox64_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox65_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox66_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox67_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox68_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox69_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox70_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox71_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox72_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox73_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox74_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox75_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox76_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox77_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox78_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox79_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+			 }
+	private: System::Void textBox80_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+	private: System::Void textBox81_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+			 }
+
 
 	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 				 Single a= 0;
@@ -1805,148 +2366,1087 @@ namespace sudoku {
 				 }
 			 }
 	private: System::Void textBox10_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox10->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,1,0);
+				 if(p!=0)
+				 {
+					 textBox10->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox10->Text="";
+				 }
 			 }
 	private: System::Void textBox11_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox11->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,1,1);
+				 if(p!=0)
+				 {
+					 textBox11->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox11->Text="";
+				 }
 			 }
 	private: System::Void textBox12_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox12->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,1,2);
+				 if(p!=0)
+				 {
+					 textBox12->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox12->Text="";
+				 }
 			 }
 	private: System::Void textBox13_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  Single a= 0;
+				 Single A = Single::TryParse(textBox13->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,1,3);
+				 if(p!=0)
+				 {
+					 textBox13->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox13->Text="";
+				 }
 			 }
 	private: System::Void textBox14_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  Single a= 0;
+				 Single A = Single::TryParse(textBox14->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,1,4);
+				 if(p!=0)
+				 {
+					 textBox14->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox14->Text="";
+				 }
 			 }
 	private: System::Void textBox15_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  Single a= 0;
+				 Single A = Single::TryParse(textBox15->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,1,5);
+				 if(p!=0)
+				 {
+					 textBox15->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox15->Text="";
+				 }
 			 }
 	private: System::Void textBox16_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  Single a= 0;
+				 Single A = Single::TryParse(textBox16->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,1,6);
+				 if(p!=0)
+				 {
+					 textBox16->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox16->Text="";
+				 }
 			 }
 	private: System::Void textBox17_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  Single a= 0;
+				 Single A = Single::TryParse(textBox17->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,1,7);
+				 if(p!=0)
+				 {
+					 textBox17->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox17->Text="";
+				 }
 			 }
 	private: System::Void textBox18_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  Single a= 0;
+				 Single A = Single::TryParse(textBox18->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,1,8);
+				 if(p!=0)
+				 {
+					 textBox18->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox18->Text="";
+				 }
 			 }
 	private: System::Void textBox19_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  Single a= 0;
+				 Single A = Single::TryParse(textBox19->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,2,0);
+				 if(p!=0)
+				 {
+					 textBox19->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox19->Text="";
+				 }
 			 }
 	private: System::Void textBox20_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   Single a= 0;
+				 Single A = Single::TryParse(textBox20->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,2,1);
+				 if(p!=0)
+				 {
+					 textBox20->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox20->Text="";
+				 }
 			 }
 	private: System::Void textBox21_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				    Single a= 0;
+				 Single A = Single::TryParse(textBox21->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,2,2);
+				 if(p!=0)
+				 {
+					 textBox21->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox21->Text="";
+				 }
+
 			 }
 	private: System::Void textBox22_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				    Single a= 0;
+				 Single A = Single::TryParse(textBox22->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,2,3);
+				 if(p!=0)
+				 {
+					 textBox22->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox22->Text="";
+				 }
 			 }
 	private: System::Void textBox23_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				    Single a= 0;
+				 Single A = Single::TryParse(textBox23->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,2,4);
+				 if(p!=0)
+				 {
+					 textBox23->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox23->Text="";
+				 }
 			 }
 	private: System::Void textBox24_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				    Single a= 0;
+				 Single A = Single::TryParse(textBox24->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,2,5);
+				 if(p!=0)
+				 {
+					 textBox24->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox24->Text="";
+				 }
 			 }
 	private: System::Void textBox25_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				    Single a= 0;
+				 Single A = Single::TryParse(textBox25->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,2,6);
+				 if(p!=0)
+				 {
+					 textBox25->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox25->Text="";
+				 }
 			 }
 	private: System::Void textBox26_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				    Single a= 0;
+				 Single A = Single::TryParse(textBox26->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,2,7);
+				 if(p!=0)
+				 {
+					 textBox26->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox26->Text="";
+				 }
 			 }
 	private: System::Void textBox27_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				    Single a= 0;
+				 Single A = Single::TryParse(textBox27->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,2,8);
+				 if(p!=0)
+				 {
+					 textBox27->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox27->Text="";
+				 }
 			 }
 	private: System::Void textBox28_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				    Single a= 0;
+				 Single A = Single::TryParse(textBox28->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,3,0);
+				 if(p!=0)
+				 {
+					 textBox28->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox28->Text="";
+				 }
+
 			 }
 	private: System::Void textBox29_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	    Single a= 0;
+				 Single A = Single::TryParse(textBox29->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,3,1);
+				 if(p!=0)
+				 {
+					 textBox29->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox29->Text="";
+				 }
 			 }
 	private: System::Void textBox30_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	    Single a= 0;
+				 Single A = Single::TryParse(textBox30->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,3,2);
+				 if(p!=0)
+				 {
+					 textBox30->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox30->Text="";
+				 }
 			 }
 	private: System::Void textBox31_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox31->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,3,3);
+				 if(p!=0)
+				 {
+					 textBox31->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox31->Text="";
+				 }
 			 }
 	private: System::Void textBox32_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox32->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,3,4);
+				 if(p!=0)
+				 {
+					 textBox32->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox32->Text="";
+				 }
 			 }
 	private: System::Void textBox33_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox33->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,3,5);
+				 if(p!=0)
+				 {
+					 textBox33->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox33->Text="";
+				 }
 			 }
 	private: System::Void textBox34_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox34->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,3,6);
+				 if(p!=0)
+				 {
+					 textBox34->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox34->Text="";
+				 }
 			 }
 	private: System::Void textBox35_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox35->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,3,7);
+				 if(p!=0)
+				 {
+					 textBox35->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox35->Text="";
+				 }
 			 }
 	private: System::Void textBox36_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox36->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,3,8);
+				 if(p!=0)
+				 {
+					 textBox36->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox36->Text="";
+				 }
 			 }
 	private: System::Void textBox37_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox37->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,4,0);
+				 if(p!=0)
+				 {
+					 textBox37->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox37->Text="";
+				 }
 			 }
 	private: System::Void textBox38_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox38->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,4,1);
+				 if(p!=0)
+				 {
+					 textBox38->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox38->Text="";
+				 }
 			 }
 	private: System::Void textBox39_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox39->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,4,2);
+				 if(p!=0)
+				 {
+					 textBox39->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox39->Text="";
+				 }
 			 }
 	private: System::Void textBox40_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox40->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,4,3);
+				 if(p!=0)
+				 {
+					 textBox40->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox40->Text="";
+				 }
 			 }
 	private: System::Void textBox41_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox41->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,4,4);
+				 if(p!=0)
+				 {
+					 textBox41->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox41->Text="";
+				 }
 			 }
 	private: System::Void textBox42_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox42->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,4,5);
+				 if(p!=0)
+				 {
+					 textBox42->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox42->Text="";
+				 }
 			 }
 	private: System::Void textBox43_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox43->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,4,6);
+				 if(p!=0)
+				 {
+					 textBox43->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox43->Text="";
+				 }
 			 }
 	private: System::Void textBox44_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox44->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,4,7);
+				 if(p!=0)
+				 {
+					 textBox44->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox44->Text="";
+				 }
 			 }
 	private: System::Void textBox45_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox45->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,4,8);
+				 if(p!=0)
+				 {
+					 textBox45->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox45->Text="";
+				 }
 			 }
 	private: System::Void textBox46_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox46->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,5,0);
+				 if(p!=0)
+				 {
+					 textBox46->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox46->Text="";
+				 }
 			 }
 	private: System::Void textBox47_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox47->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,5,1);
+				 if(p!=0)
+				 {
+					 textBox47->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox47->Text="";
+				 }
 			 }
 	private: System::Void textBox48_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox48->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,5,2);
+				 if(p!=0)
+				 {
+					 textBox48->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox48->Text="";
+				 }
 			 }
 	private: System::Void textBox49_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox49->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,5,3);
+				 if(p!=0)
+				 {
+					 textBox49->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox49->Text="";
+				 }
 			 }
 	private: System::Void textBox50_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox50->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,5,4);
+				 if(p!=0)
+				 {
+					 textBox50->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox50->Text="";
+				 }
 			 }
 	private: System::Void textBox51_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox51->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,5,5);
+				 if(p!=0)
+				 {
+					 textBox51->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox51->Text="";
+				 }
 			 }
 	private: System::Void textBox52_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox52->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,5,6);
+				 if(p!=0)
+				 {
+					 textBox52->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox52->Text="";
+				 }
 			 }
 	private: System::Void textBox53_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox53->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,5,7);
+				 if(p!=0)
+				 {
+					 textBox53->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox53->Text="";
+				 }
 			 }
 	private: System::Void textBox54_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox54->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,5,8);
+				 if(p!=0)
+				 {
+					 textBox54->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox54->Text="";
+				 }
 			 }
 	private: System::Void textBox55_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox55->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,6,0);
+				 if(p!=0)
+				 {
+					 textBox55->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox55->Text="";
+				 }
 			 }
 	private: System::Void textBox56_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox56->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,6,1);
+				 if(p!=0)
+				 {
+					 textBox56->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox56->Text="";
+				 }
+
 			 }
 	private: System::Void textBox57_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox57->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,6,2);
+				 if(p!=0)
+				 {
+					 textBox57->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox57->Text="";
+				 }
 			 }
 	private: System::Void textBox58_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox58->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,6,3);
+				 if(p!=0)
+				 {
+					 textBox58->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox58->Text="";
+				 }
 			 }
 	private: System::Void textBox59_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox59->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,6,4);
+				 if(p!=0)
+				 {
+					 textBox59->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox59->Text="";
+				 }
 			 }
 	private: System::Void textBox60_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox60->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,6,5);
+				 if(p!=0)
+				 {
+					 textBox60->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox60->Text="";
+				 }
 			 }
 	private: System::Void textBox61_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox61->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,6,6);
+				 if(p!=0)
+				 {
+					 textBox61->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox61->Text="";
+				 }
 			 }
 	private: System::Void textBox62_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox62->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,6,7);
+				 if(p!=0)
+				 {
+					 textBox62->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox62->Text="";
+				 }
 			 }
 	private: System::Void textBox63_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox63->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,6,8);
+				 if(p!=0)
+				 {
+					 textBox63->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox63->Text="";
+				 }
 			 }
 	private: System::Void textBox64_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	 	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox64->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,7,0);
+				 if(p!=0)
+				 {
+					 textBox64->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox64->Text="";
+				 }
 			 }
 	private: System::Void textBox65_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox65->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,7,1);
+				 if(p!=0)
+				 {
+					 textBox65->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox65->Text="";
+				 }
 			 }
 	private: System::Void textBox66_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox66->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,7,2);
+				 if(p!=0)
+				 {
+					 textBox66->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox66->Text="";
+				 }
 			 }
 	private: System::Void textBox67_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox67->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,7,3);
+				 if(p!=0)
+				 {
+					 textBox67->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox67->Text="";
+				 }
 			 }
 	private: System::Void textBox68_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox68->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,7,4);
+				 if(p!=0)
+				 {
+					 textBox68->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox68->Text="";
+				 }
 			 }
 	private: System::Void textBox69_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox69->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,7,5);
+				 if(p!=0)
+				 {
+					 textBox69->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox69->Text="";
+				 }
 			 }
 	private: System::Void textBox70_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox70->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,7,6);
+				 if(p!=0)
+				 {
+					 textBox70->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox70->Text="";
+				 }
 			 }
 	private: System::Void textBox71_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox71->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,7,7);
+				 if(p!=0)
+				 {
+					 textBox71->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox71->Text="";
+				 }
 			 }
 	private: System::Void textBox72_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox72->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,7,8);
+				 if(p!=0)
+				 {
+					 textBox72->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox72->Text="";
+				 }
 			 }
 	private: System::Void textBox73_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				   	  	    Single a= 0;
+				 Single A = Single::TryParse(textBox73->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,8,0);
+				 if(p!=0)
+				 {
+					 textBox73->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox73->Text="";
+				 }
 			 }
 	private: System::Void textBox74_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox74->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,8,1);
+				 if(p!=0)
+				 {
+					 textBox74->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox74->Text="";
+				 }
 			 }
 	private: System::Void textBox75_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox75->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,8,2);
+				 if(p!=0)
+				 {
+					 textBox75->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox75->Text="";
+				 }
 			 }
 	private: System::Void textBox76_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox76->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,8,3);
+				 if(p!=0)
+				 {
+					 textBox76->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox76->Text="";
+				 }
 			 }
 	private: System::Void textBox77_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox77->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,8,4);
+				 if(p!=0)
+				 {
+					 textBox77->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox77->Text="";
+				 }
 			 }
 	private: System::Void textBox78_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox78->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,8,5);
+				 if(p!=0)
+				 {
+					 textBox78->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox78->Text="";
+				 }
 			 }
 	private: System::Void textBox79_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox79->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,8,6);
+				 if(p!=0)
+				 {
+					 textBox79->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox79->Text="";
+				 }
 			 }
 	private: System::Void textBox80_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox80->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,8,7);
+				 if(p!=0)
+				 {
+					 textBox80->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox80->Text="";
+				 }
 			 }
 	private: System::Void textBox81_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				  	    Single a= 0;
+				 Single A = Single::TryParse(textBox81->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,8,8);
+				 if(p!=0)
+				 {
+					 textBox81->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox81->Text="";
+				 }
 			 }
 	private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {			 }
 	};

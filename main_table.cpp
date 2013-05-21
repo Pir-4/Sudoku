@@ -225,7 +225,7 @@ int main_table::user_input(const int data,const int i,const int f)//запись  данн
 
 	if(check_retries(data,i,f))
 	{
-		
+		ref_arr[i][f]=-1;
 		return 0;
 
 	}
