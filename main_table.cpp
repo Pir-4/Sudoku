@@ -214,41 +214,26 @@ bool main_table::check_square(const int data,const int i,const int f)//проверка 
 	return 0;
 }
 
-char main_table::user_input(const char a,const int i,const int f)//запись  данных в основную и вспомогательную таблицы 
+int main_table::user_input(const int data,const int i,const int f)//запись  данных в основную и вспомогательную таблицы 
 {
-	char k;
 
 	if(ref_arr[i][f]==1)
 	{
-		k=arr[i][f]+48;
-		return k;
+		
+		return data;
 	}
-
-	int data;
-
-	if((a<49)||(a>57))
-	{
-		k=NULL;
-		return k;
-	}
-	else
-	{
-		data=a-48;
-	}
-
 
 	if(check_retries(data,i,f))
 	{
-		k=NULL;
-		return k;
+		
+		return 0;
 
 	}
 	else
 	{
 		arr[i][f]=data;
 		ref_arr[i][f]=2;
-		k=data+48;
-		return k;
+		return data;
 	}
 
 }
@@ -269,4 +254,15 @@ bool main_table::chack_all()// проверяет всю вспомогательную таблицу на потоврен
 int main_table::get_arr(int i,int f)
 {
 	return arr[i][f];
+}
+bool main_table::get_ref_arr(int i,int f)
+{
+	if(ref_arr[i][f])
+	{
+		return true;
+	}
+	else
+	{
+	return false;
+	}
 }

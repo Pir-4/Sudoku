@@ -23,8 +23,9 @@ public:
 	bool check_column(int, int,int);//проверка совпадающих значений в стобце
 	bool check_square(int,int,int);//проверка совпадающих значених по квадрату
 
-	char user_input(char,int,int);//ввод данных пользователем
+	int user_input(int,int,int);//ввод данных пользователем
 	bool  chack_all();// проверяет всю вспомогательную таблицу на потоврение и заполнение. 
 	int get_arr(int, int);//возвращает элементы массива 
+	bool get_ref_arr(int,int);
 };
 

@@ -18,9 +18,10 @@ namespace sudoku {
 	public ref class Sudokuframe : public System::Windows::Forms::Form
 	{
 		main_table* C;
+
 		String^ TorZ;
 	public:
-		 
+
 		Sudokuframe(void)
 		{
 			InitializeComponent();
@@ -254,6 +255,7 @@ namespace sudoku {
 			this->textBox2->TabIndex = 1;
 			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox2_TextChanged);
+			this->textBox2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox2_KeyPress);
 			// 
 			// textBox3
 			// 
@@ -269,6 +271,7 @@ namespace sudoku {
 			this->textBox3->TabIndex = 2;
 			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox3_TextChanged);
+			this->textBox3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox3_KeyPress);
 			// 
 			// textBox4
 			// 
@@ -284,6 +287,7 @@ namespace sudoku {
 			this->textBox4->TabIndex = 3;
 			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox4->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox4_TextChanged);
+			this->textBox4->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox4_KeyPress);
 			// 
 			// textBox5
 			// 
@@ -299,6 +303,7 @@ namespace sudoku {
 			this->textBox5->TabIndex = 4;
 			this->textBox5->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox5->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox5_TextChanged);
+			this->textBox5->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox5_KeyPress);
 			// 
 			// textBox6
 			// 
@@ -314,6 +319,7 @@ namespace sudoku {
 			this->textBox6->TabIndex = 5;
 			this->textBox6->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox6->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox6_TextChanged);
+			this->textBox6->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox6_KeyPress);
 			// 
 			// textBox7
 			// 
@@ -329,6 +335,7 @@ namespace sudoku {
 			this->textBox7->TabIndex = 6;
 			this->textBox7->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox7->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox7_TextChanged);
+			this->textBox7->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox7_KeyPress);
 			// 
 			// textBox8
 			// 
@@ -344,6 +351,7 @@ namespace sudoku {
 			this->textBox8->TabIndex = 7;
 			this->textBox8->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox8->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox8_TextChanged);
+			this->textBox8->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox8_KeyPress);
 			// 
 			// textBox9
 			// 
@@ -359,6 +367,7 @@ namespace sudoku {
 			this->textBox9->TabIndex = 8;
 			this->textBox9->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox9->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox9_TextChanged);
+			this->textBox9->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox9_KeyPress);
 			// 
 			// textBox10
 			// 
@@ -374,6 +383,7 @@ namespace sudoku {
 			this->textBox10->TabIndex = 17;
 			this->textBox10->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox10->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox10_TextChanged);
+			this->textBox10->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox10_KeyPress);
 			// 
 			// textBox11
 			// 
@@ -389,6 +399,7 @@ namespace sudoku {
 			this->textBox11->TabIndex = 16;
 			this->textBox11->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox11->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox11_TextChanged);
+			this->textBox11->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox11_KeyPress);
 			// 
 			// textBox12
 			// 
@@ -404,6 +415,7 @@ namespace sudoku {
 			this->textBox12->TabIndex = 15;
 			this->textBox12->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox12->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox12_TextChanged);
+			this->textBox12->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox12_KeyPress);
 			// 
 			// textBox13
 			// 
@@ -1535,521 +1547,407 @@ namespace sudoku {
 
 		}
 #pragma endregion
-	
+
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 }
-private: System::Void Sudokuframe_Load(System::Object^  sender, System::EventArgs^  e) {
-			 textBox1->TextAlign = HorizontalAlignment::Center;
-			 textBox2->TextAlign = HorizontalAlignment::Center;
-			 textBox3->TextAlign = HorizontalAlignment::Center;
-			 textBox4->TextAlign = HorizontalAlignment::Center;
-			 textBox5->TextAlign = HorizontalAlignment::Center;
-			 textBox6->TextAlign = HorizontalAlignment::Center;
-			 textBox7->TextAlign = HorizontalAlignment::Center;
-			 textBox8->TextAlign = HorizontalAlignment::Center;
-			 textBox9->TextAlign = HorizontalAlignment::Center;
-			 textBox10->TextAlign = HorizontalAlignment::Center;
-			 textBox11->TextAlign = HorizontalAlignment::Center;
-			 textBox12->TextAlign = HorizontalAlignment::Center;
-			 textBox13->TextAlign = HorizontalAlignment::Center;
-			 textBox14->TextAlign = HorizontalAlignment::Center;
-			 textBox15->TextAlign = HorizontalAlignment::Center;
-			 textBox16->TextAlign = HorizontalAlignment::Center;
-			 textBox17->TextAlign = HorizontalAlignment::Center;
-			 textBox18->TextAlign = HorizontalAlignment::Center;
-			 textBox19->TextAlign = HorizontalAlignment::Center;
-			 textBox20->TextAlign = HorizontalAlignment::Center;
-			 textBox21->TextAlign = HorizontalAlignment::Center;
-			 textBox22->TextAlign = HorizontalAlignment::Center;
-			 textBox23->TextAlign = HorizontalAlignment::Center;
-			 textBox24->TextAlign = HorizontalAlignment::Center;
-			 textBox25->TextAlign = HorizontalAlignment::Center;
-			 textBox26->TextAlign = HorizontalAlignment::Center;
-			 textBox27->TextAlign = HorizontalAlignment::Center;
-			 textBox28->TextAlign = HorizontalAlignment::Center;
-			 textBox29->TextAlign = HorizontalAlignment::Center;
-			 textBox30->TextAlign = HorizontalAlignment::Center;
-			 textBox31->TextAlign = HorizontalAlignment::Center;
-			 textBox32->TextAlign = HorizontalAlignment::Center;
-			 textBox33->TextAlign = HorizontalAlignment::Center;
-			 textBox34->TextAlign = HorizontalAlignment::Center;
-			 textBox35->TextAlign = HorizontalAlignment::Center;
-			 textBox36->TextAlign = HorizontalAlignment::Center;
-			 textBox37->TextAlign = HorizontalAlignment::Center;
-			 textBox38->TextAlign = HorizontalAlignment::Center;
-			 textBox39->TextAlign = HorizontalAlignment::Center;
-			 textBox40->TextAlign = HorizontalAlignment::Center;
-			 textBox41->TextAlign = HorizontalAlignment::Center;
-			 textBox42->TextAlign = HorizontalAlignment::Center;
-			 textBox43->TextAlign = HorizontalAlignment::Center;
-			 textBox44->TextAlign = HorizontalAlignment::Center;
-			 textBox45->TextAlign = HorizontalAlignment::Center;
-			 textBox46->TextAlign = HorizontalAlignment::Center;
-			 textBox47->TextAlign = HorizontalAlignment::Center;
-			 textBox48->TextAlign = HorizontalAlignment::Center;
-			 textBox49->TextAlign = HorizontalAlignment::Center;
-			 textBox50->TextAlign = HorizontalAlignment::Center;
-			 textBox51->TextAlign = HorizontalAlignment::Center;
-			 textBox52->TextAlign = HorizontalAlignment::Center;
-			 textBox53->TextAlign = HorizontalAlignment::Center;
-			 textBox54->TextAlign = HorizontalAlignment::Center;
-			 textBox55->TextAlign = HorizontalAlignment::Center;
-			 textBox56->TextAlign = HorizontalAlignment::Center;
-			 textBox57->TextAlign = HorizontalAlignment::Center;
-			 textBox58->TextAlign = HorizontalAlignment::Center;
-			 textBox59->TextAlign = HorizontalAlignment::Center;
-			 textBox60->TextAlign = HorizontalAlignment::Center;
-			 textBox61->TextAlign = HorizontalAlignment::Center;
-			 textBox62->TextAlign = HorizontalAlignment::Center;
-			 textBox63->TextAlign = HorizontalAlignment::Center;
-			 textBox64->TextAlign = HorizontalAlignment::Center;
-			 textBox65->TextAlign = HorizontalAlignment::Center;
-			 textBox66->TextAlign = HorizontalAlignment::Center;
-			 textBox67->TextAlign = HorizontalAlignment::Center;
-			 textBox68->TextAlign = HorizontalAlignment::Center;
-			 textBox69->TextAlign = HorizontalAlignment::Center;
-			 textBox70->TextAlign = HorizontalAlignment::Center;
-			 textBox71->TextAlign = HorizontalAlignment::Center;
-			 textBox72->TextAlign = HorizontalAlignment::Center;
-			 textBox73->TextAlign = HorizontalAlignment::Center;
-			 textBox74->TextAlign = HorizontalAlignment::Center;
-			 textBox75->TextAlign = HorizontalAlignment::Center;
-			 textBox76->TextAlign = HorizontalAlignment::Center;
-			 textBox77->TextAlign = HorizontalAlignment::Center;
-			 textBox78->TextAlign = HorizontalAlignment::Center;
-			 textBox79->TextAlign = HorizontalAlignment::Center;
-			 textBox80->TextAlign = HorizontalAlignment::Center;
-			 textBox81->TextAlign = HorizontalAlignment::Center;
-			 int a;
-			 C->print_arr();
-			 a=C->get_arr(0,0);
-			 if(a!=0){
-				 textBox1->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(0,1);
-			if(a!=0){
-				textBox2->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(0,2);
-			if(a!=0){
-			textBox3->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(0,3);
-			if(a!=0){
-			textBox4->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(0,4);
-			if(a!=0){
-			textBox5->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(0,5);
-			if(a!=0){
-			textBox6->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(0,6);
-			if(a!=0){
-			textBox7->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(0,7);
-			if(a!=0){
-			textBox8->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(0,8);
-			if(a!=0){
-			textBox9->Text=String::Format(" {0:F0}", a);}
-
-			a=C->get_arr(1,0);
-			if(a!=0){
-			textBox10->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(1,1);
-			if(a!=0){
-			textBox11->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(1,2);
-			if(a!=0){
-			textBox12->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(1,3);
-			if(a!=0){
-			textBox13->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(1,4);
-			if(a!=0){
-			textBox14->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(1,5);
-			if(a!=0){
-			textBox15->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(1,6);
-			if(a!=0){
-			textBox16->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(1,7);
-			if(a!=0){
-			textBox17->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(1,8);
-			if(a!=0){
-			textBox18->Text=String::Format(" {0:F0}", a);}
-
-			a=C->get_arr(2,0);
-			if(a!=0){
-			textBox19->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(2,1);
-			if(a!=0){
-			textBox20->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(2,2);
-			if(a!=0){
-			textBox21->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(2,3);
-			if(a!=0){
-			textBox22->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(2,4);
-			if(a!=0){
-			textBox23->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(2,5);
-			if(a!=0){
-			textBox24->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(2,6);
-			if(a!=0){
-			textBox25->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(2,7);
-			if(a!=0){
-			textBox26->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(2,8);
-			if(a!=0){
-			textBox27->Text=String::Format(" {0:F0}", a);}
-
-			a=C->get_arr(3,0);
-			if(a!=0){
-			textBox28->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(3,1);
-			if(a!=0){
-			textBox29->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(3,2);
-			if(a!=0){
-			textBox30->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(3,3);
-			if(a!=0){
-			textBox31->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(3,4);
-			if(a!=0){
-			textBox32->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(3,5);
-			if(a!=0){
-			textBox33->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(3,6);
-			if(a!=0){
-			textBox34->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(3,7);
-			if(a!=0){
-			textBox35->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(3,8);
-			if(a!=0){
-			textBox36->Text=String::Format(" {0:F0}", a);}
-
-			a=C->get_arr(4,0);
-			if(a!=0){
-			textBox37->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(4,1);
-			if(a!=0){
-			textBox38->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(4,2);
-			if(a!=0){
-			textBox39->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(4,3);
-			if(a!=0){
-			textBox40->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(4,4);
-			if(a!=0){
-			textBox41->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(4,5);
-			if(a!=0){
-			textBox42->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(4,6);
-			if(a!=0){
-			textBox43->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(4,7);
-			if(a!=0){
-			textBox44->Text=String::Format(" {0:F0}", a);}
-			a=C->get_arr(4,8);
-			if(a!=0){
-			textBox45->Text=String::Format(" {0:F0}", a);}
-
-			a=C->get_arr(5,0);
-			if(a!=0)
-			textBox46->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(5,1);
-			if(a!=0)
-			textBox47->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(5,2);
-			if(a!=0)
-			textBox48->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(5,3);
-			if(a!=0)
-			textBox49->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(5,4);
-			if(a!=0)
-			textBox50->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(5,5);
-			if(a!=0)
-			textBox51->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(5,6);
-			textBox52->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(5,7);
-			if(a!=0)
-			textBox53->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(5,8);
-			if(a!=0)
-			textBox54->Text=String::Format(" {0:F0}", a);
-
-			a=C->get_arr(6,0);
-			if(a!=0)
-			textBox55->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(6,1);
-			if(a!=0)
-			textBox56->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(6,2);
-			if(a!=0)
-			textBox57->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(6,3);
-			if(a!=0)
-			textBox58->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(6,4);
-			if(a!=0)
-			textBox59->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(6,5);
-			if(a!=0)
-			textBox60->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(6,6);
-			if(a!=0)
-			textBox61->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(6,7);
-			if(a!=0)
-			textBox62->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(6,8);
-			if(a!=0)
-			textBox63->Text=String::Format(" {0:F0}", a);
-
-			a=C->get_arr(7,0);
-			if(a!=0)
-			textBox64->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(7,1);
-			if(a!=0)
-			textBox65->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(7,2);
-			if(a!=0)
-			textBox66->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(7,3);
-			if(a!=0)
-			textBox67->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(7,4);
-			if(a!=0)
-			textBox68->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(7,5);
-			if(a!=0)
-			textBox69->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(7,6);
-			if(a!=0)
-			textBox70->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(7,7);
-			if(a!=0)
-			textBox71->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(7,8);
-			if(a!=0)
-			textBox72->Text=String::Format(" {0:F0}", a);
-
-			a=C->get_arr(8,0);
-			if(a!=0)
-			textBox73->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(8,1);
-			if(a!=0)
-			textBox74->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(8,2);
-			if(a!=0)
-			textBox75->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(8,3);
-			if(a!=0)
-			textBox76->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(8,4);
-			if(a!=0)
-			textBox77->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(8,5);
-			if(a!=0)
-			textBox78->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(8,6);
-			if(a!=0)
-			textBox79->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(8,7);
-			if(a!=0)
-			textBox80->Text=String::Format(" {0:F0}", a);
-			a=C->get_arr(8,8);
-			if(a!=0)
-			textBox81->Text=String::Format(" {0:F0}", a);
-
-
-			
-		 }
- private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-					  bool TZFound = false;
-if (Char::IsDigit(e->KeyChar) == true) return;
-if (e->KeyChar == (char)Keys::Back) return;
-e->Handled = true;
-
-				  }
-
-/*private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void Sudokuframe_Load(System::Object^  sender, System::EventArgs^  e) {
+				 C->print_arr();
+				 int i=0;
+				 int f=0;
+				 int a;
+				 for(int p=1; p<=81; p++)
+				 {
+					 a=C->get_arr(i,f);
+					 TextBox^ t = (TextBox^)this->Controls["textBox"+p.ToString()];
+					 if(a!=0) t->Text=String::Format(" {0:F0}", a);
+					 if(C->get_ref_arr(i,f)) t->Enabled=false;
+					 t->TextAlign = HorizontalAlignment::Center;
+					 f++;
+					 if(f==9)
+					 {
+						 f=0;
+						 i++;
+					 }
+				 }
 
 			 }
-private: System::Void textBox1_TextChanged_1(System::Object^  sender, System::EventArgs^  e) {
-			 }*/
-private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox8_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox3_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox4_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox5_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox6_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox7_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox9_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox10_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox11_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox12_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox13_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox14_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox15_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox16_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox17_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox18_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox19_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox20_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox21_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox22_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox23_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox24_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox25_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox26_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox27_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox28_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox29_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox30_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox31_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox32_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox33_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox34_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox35_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox36_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox37_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox38_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox39_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox40_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox41_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox42_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox43_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox44_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox45_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox46_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox47_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox48_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox49_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox50_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox51_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox52_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox53_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox54_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox55_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox56_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox57_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox58_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox59_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox60_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox61_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox62_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox63_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox64_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox65_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox66_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox67_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox68_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox69_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox70_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox71_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox72_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox73_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox74_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox75_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox76_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox77_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox78_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox79_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox80_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox81_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
-};
+	private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox4_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox5_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox6_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox7_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox8_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox9_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox10_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox11_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+	private: System::Void textBox12_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+				 bool TZFound = false;
+				 if (Char::IsDigit(e->KeyChar) == true) return;
+				 if (e->KeyChar == (char)Keys::Back) return;
+				 e->Handled = true;
+
+
+			 }
+
+	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox1->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,0,0);
+				 if(p!=0)
+				 {
+					 textBox1->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox1->Text="";
+				 }
+
+			 }
+	private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox2->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,0,1);
+				 if(p!=0)
+				 {
+					 textBox2->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox2->Text="";
+				 }
+			 }
+	private: System::Void textBox3_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox3->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,0,2);
+				 if(p!=0)
+				 {
+					 textBox3->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox3->Text="";
+				 }
+			 }
+	private: System::Void textBox4_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox4->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,0,3);
+				 if(p!=0)
+				 {
+					 textBox4->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox4->Text="";
+				 }
+			 }
+	private: System::Void textBox5_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox5->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,0,4);
+				 if(p!=0)
+				 {
+					 textBox5->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox5->Text="";
+				 }
+			 }
+	private: System::Void textBox6_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox6->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,0,5);
+				 if(p!=0)
+				 {
+					 textBox6->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox6->Text="";
+				 }
+			 }
+	private: System::Void textBox7_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox7->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,0,6);
+				 if(p!=0)
+				 {
+					 textBox7->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox7->Text="";
+				 }
+			 }
+	private: System::Void textBox8_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox8->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,0,7);
+				 if(p!=0)
+				 {
+					 textBox8->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox8->Text="";
+				 }
+			 }
+	private: System::Void textBox9_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 Single a= 0;
+				 Single A = Single::TryParse(textBox9->Text,
+					 System::Globalization::NumberStyles::Number,
+					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
+				 int p=C->user_input(a,0,8);
+				 if(p!=0)
+				 {
+					 textBox9->Text=String::Format(" {0:F0}", p);
+				 }
+				 else
+				 {
+					 textBox9->Text="";
+				 }
+			 }
+	private: System::Void textBox10_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox11_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox12_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox13_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox14_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox15_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox16_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox17_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox18_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox19_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox20_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox21_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox22_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox23_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox24_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox25_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox26_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox27_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox28_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox29_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox30_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox31_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox32_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox33_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox34_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox35_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox36_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox37_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox38_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox39_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox40_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox41_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox42_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox43_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox44_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox45_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox46_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox47_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox48_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox49_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox50_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox51_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox52_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox53_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox54_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox55_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox56_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox57_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox58_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox59_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox60_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox61_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox62_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox63_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox64_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox65_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox66_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox67_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox68_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox69_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox70_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox71_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox72_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox73_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox74_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox75_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox76_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox77_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox78_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox79_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox80_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void textBox81_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {			 }
+	};
 }
