@@ -18,6 +18,7 @@ namespace sudoku {
 	public ref class Sudokuframe : public System::Windows::Forms::Form
 	{
 		main_table* C;
+		String^ TorZ;
 	public:
 		 
 		Sudokuframe(void)
@@ -229,12 +230,15 @@ namespace sudoku {
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox1->Location = System::Drawing::Point(12, 12);
+			this->textBox1->MaxLength = 1;
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(44, 43);
 			this->textBox1->TabIndex = 0;
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox1_TextChanged_1);
+			this->textBox1->UseWaitCursor = true;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox1_TextChanged);
+			this->textBox1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox1_KeyPress);
 			// 
 			// textBox2
 			// 
@@ -243,6 +247,7 @@ namespace sudoku {
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox2->Location = System::Drawing::Point(62, 12);
+			this->textBox2->MaxLength = 1;
 			this->textBox2->Multiline = true;
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(44, 43);
@@ -257,6 +262,7 @@ namespace sudoku {
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox3->Location = System::Drawing::Point(112, 12);
+			this->textBox3->MaxLength = 1;
 			this->textBox3->Multiline = true;
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(44, 43);
@@ -271,6 +277,7 @@ namespace sudoku {
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox4->Location = System::Drawing::Point(171, 12);
+			this->textBox4->MaxLength = 1;
 			this->textBox4->Multiline = true;
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(44, 43);
@@ -285,6 +292,7 @@ namespace sudoku {
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox5->Location = System::Drawing::Point(221, 12);
+			this->textBox5->MaxLength = 1;
 			this->textBox5->Multiline = true;
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(44, 43);
@@ -299,6 +307,7 @@ namespace sudoku {
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox6->Location = System::Drawing::Point(271, 12);
+			this->textBox6->MaxLength = 1;
 			this->textBox6->Multiline = true;
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(44, 43);
@@ -313,6 +322,7 @@ namespace sudoku {
 			this->textBox7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox7->Location = System::Drawing::Point(330, 12);
+			this->textBox7->MaxLength = 1;
 			this->textBox7->Multiline = true;
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(44, 43);
@@ -327,6 +337,7 @@ namespace sudoku {
 			this->textBox8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox8->Location = System::Drawing::Point(380, 12);
+			this->textBox8->MaxLength = 1;
 			this->textBox8->Multiline = true;
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->Size = System::Drawing::Size(44, 43);
@@ -341,6 +352,7 @@ namespace sudoku {
 			this->textBox9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox9->Location = System::Drawing::Point(430, 12);
+			this->textBox9->MaxLength = 1;
 			this->textBox9->Multiline = true;
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->Size = System::Drawing::Size(44, 43);
@@ -355,6 +367,7 @@ namespace sudoku {
 			this->textBox10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox10->Location = System::Drawing::Point(12, 61);
+			this->textBox10->MaxLength = 1;
 			this->textBox10->Multiline = true;
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->Size = System::Drawing::Size(44, 43);
@@ -369,6 +382,7 @@ namespace sudoku {
 			this->textBox11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox11->Location = System::Drawing::Point(62, 61);
+			this->textBox11->MaxLength = 1;
 			this->textBox11->Multiline = true;
 			this->textBox11->Name = L"textBox11";
 			this->textBox11->Size = System::Drawing::Size(44, 43);
@@ -383,6 +397,7 @@ namespace sudoku {
 			this->textBox12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox12->Location = System::Drawing::Point(112, 61);
+			this->textBox12->MaxLength = 1;
 			this->textBox12->Multiline = true;
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->Size = System::Drawing::Size(44, 43);
@@ -397,6 +412,7 @@ namespace sudoku {
 			this->textBox13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox13->Location = System::Drawing::Point(171, 61);
+			this->textBox13->MaxLength = 1;
 			this->textBox13->Multiline = true;
 			this->textBox13->Name = L"textBox13";
 			this->textBox13->Size = System::Drawing::Size(44, 43);
@@ -411,6 +427,7 @@ namespace sudoku {
 			this->textBox14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox14->Location = System::Drawing::Point(221, 61);
+			this->textBox14->MaxLength = 1;
 			this->textBox14->Multiline = true;
 			this->textBox14->Name = L"textBox14";
 			this->textBox14->Size = System::Drawing::Size(44, 43);
@@ -425,6 +442,7 @@ namespace sudoku {
 			this->textBox15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox15->Location = System::Drawing::Point(271, 61);
+			this->textBox15->MaxLength = 1;
 			this->textBox15->Multiline = true;
 			this->textBox15->Name = L"textBox15";
 			this->textBox15->Size = System::Drawing::Size(44, 43);
@@ -439,6 +457,7 @@ namespace sudoku {
 			this->textBox16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox16->Location = System::Drawing::Point(330, 61);
+			this->textBox16->MaxLength = 1;
 			this->textBox16->Multiline = true;
 			this->textBox16->Name = L"textBox16";
 			this->textBox16->Size = System::Drawing::Size(44, 43);
@@ -453,6 +472,7 @@ namespace sudoku {
 			this->textBox17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox17->Location = System::Drawing::Point(380, 61);
+			this->textBox17->MaxLength = 1;
 			this->textBox17->Multiline = true;
 			this->textBox17->Name = L"textBox17";
 			this->textBox17->Size = System::Drawing::Size(44, 43);
@@ -467,6 +487,7 @@ namespace sudoku {
 			this->textBox18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox18->Location = System::Drawing::Point(430, 61);
+			this->textBox18->MaxLength = 1;
 			this->textBox18->Multiline = true;
 			this->textBox18->Name = L"textBox18";
 			this->textBox18->Size = System::Drawing::Size(44, 43);
@@ -481,6 +502,7 @@ namespace sudoku {
 			this->textBox19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox19->Location = System::Drawing::Point(12, 110);
+			this->textBox19->MaxLength = 1;
 			this->textBox19->Multiline = true;
 			this->textBox19->Name = L"textBox19";
 			this->textBox19->Size = System::Drawing::Size(44, 43);
@@ -495,6 +517,7 @@ namespace sudoku {
 			this->textBox20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox20->Location = System::Drawing::Point(62, 110);
+			this->textBox20->MaxLength = 1;
 			this->textBox20->Multiline = true;
 			this->textBox20->Name = L"textBox20";
 			this->textBox20->Size = System::Drawing::Size(44, 43);
@@ -509,6 +532,7 @@ namespace sudoku {
 			this->textBox21->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox21->Location = System::Drawing::Point(112, 110);
+			this->textBox21->MaxLength = 1;
 			this->textBox21->Multiline = true;
 			this->textBox21->Name = L"textBox21";
 			this->textBox21->Size = System::Drawing::Size(44, 43);
@@ -523,6 +547,7 @@ namespace sudoku {
 			this->textBox22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox22->Location = System::Drawing::Point(171, 110);
+			this->textBox22->MaxLength = 1;
 			this->textBox22->Multiline = true;
 			this->textBox22->Name = L"textBox22";
 			this->textBox22->Size = System::Drawing::Size(44, 43);
@@ -537,6 +562,7 @@ namespace sudoku {
 			this->textBox23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox23->Location = System::Drawing::Point(221, 110);
+			this->textBox23->MaxLength = 1;
 			this->textBox23->Multiline = true;
 			this->textBox23->Name = L"textBox23";
 			this->textBox23->Size = System::Drawing::Size(44, 43);
@@ -551,6 +577,7 @@ namespace sudoku {
 			this->textBox24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox24->Location = System::Drawing::Point(271, 110);
+			this->textBox24->MaxLength = 1;
 			this->textBox24->Multiline = true;
 			this->textBox24->Name = L"textBox24";
 			this->textBox24->Size = System::Drawing::Size(44, 43);
@@ -565,6 +592,7 @@ namespace sudoku {
 			this->textBox25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox25->Location = System::Drawing::Point(430, 110);
+			this->textBox25->MaxLength = 1;
 			this->textBox25->Multiline = true;
 			this->textBox25->Name = L"textBox25";
 			this->textBox25->Size = System::Drawing::Size(44, 43);
@@ -579,6 +607,7 @@ namespace sudoku {
 			this->textBox26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox26->Location = System::Drawing::Point(380, 110);
+			this->textBox26->MaxLength = 1;
 			this->textBox26->Multiline = true;
 			this->textBox26->Name = L"textBox26";
 			this->textBox26->Size = System::Drawing::Size(44, 43);
@@ -593,6 +622,7 @@ namespace sudoku {
 			this->textBox27->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox27->Location = System::Drawing::Point(330, 110);
+			this->textBox27->MaxLength = 1;
 			this->textBox27->Multiline = true;
 			this->textBox27->Name = L"textBox27";
 			this->textBox27->Size = System::Drawing::Size(44, 43);
@@ -607,6 +637,7 @@ namespace sudoku {
 			this->textBox28->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox28->Location = System::Drawing::Point(12, 167);
+			this->textBox28->MaxLength = 1;
 			this->textBox28->Multiline = true;
 			this->textBox28->Name = L"textBox28";
 			this->textBox28->Size = System::Drawing::Size(44, 43);
@@ -621,6 +652,7 @@ namespace sudoku {
 			this->textBox29->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox29->Location = System::Drawing::Point(62, 167);
+			this->textBox29->MaxLength = 1;
 			this->textBox29->Multiline = true;
 			this->textBox29->Name = L"textBox29";
 			this->textBox29->Size = System::Drawing::Size(44, 43);
@@ -635,6 +667,7 @@ namespace sudoku {
 			this->textBox30->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox30->Location = System::Drawing::Point(112, 167);
+			this->textBox30->MaxLength = 1;
 			this->textBox30->Multiline = true;
 			this->textBox30->Name = L"textBox30";
 			this->textBox30->Size = System::Drawing::Size(44, 43);
@@ -649,6 +682,7 @@ namespace sudoku {
 			this->textBox31->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox31->Location = System::Drawing::Point(171, 167);
+			this->textBox31->MaxLength = 1;
 			this->textBox31->Multiline = true;
 			this->textBox31->Name = L"textBox31";
 			this->textBox31->Size = System::Drawing::Size(44, 43);
@@ -663,6 +697,7 @@ namespace sudoku {
 			this->textBox32->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox32->Location = System::Drawing::Point(221, 167);
+			this->textBox32->MaxLength = 1;
 			this->textBox32->Multiline = true;
 			this->textBox32->Name = L"textBox32";
 			this->textBox32->Size = System::Drawing::Size(44, 43);
@@ -677,6 +712,7 @@ namespace sudoku {
 			this->textBox33->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox33->Location = System::Drawing::Point(271, 167);
+			this->textBox33->MaxLength = 1;
 			this->textBox33->Multiline = true;
 			this->textBox33->Name = L"textBox33";
 			this->textBox33->Size = System::Drawing::Size(44, 43);
@@ -691,6 +727,7 @@ namespace sudoku {
 			this->textBox34->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox34->Location = System::Drawing::Point(330, 167);
+			this->textBox34->MaxLength = 1;
 			this->textBox34->Multiline = true;
 			this->textBox34->Name = L"textBox34";
 			this->textBox34->Size = System::Drawing::Size(44, 43);
@@ -705,6 +742,7 @@ namespace sudoku {
 			this->textBox35->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox35->Location = System::Drawing::Point(380, 167);
+			this->textBox35->MaxLength = 1;
 			this->textBox35->Multiline = true;
 			this->textBox35->Name = L"textBox35";
 			this->textBox35->Size = System::Drawing::Size(44, 43);
@@ -719,6 +757,7 @@ namespace sudoku {
 			this->textBox36->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox36->Location = System::Drawing::Point(430, 167);
+			this->textBox36->MaxLength = 1;
 			this->textBox36->Multiline = true;
 			this->textBox36->Name = L"textBox36";
 			this->textBox36->Size = System::Drawing::Size(44, 43);
@@ -733,6 +772,7 @@ namespace sudoku {
 			this->textBox37->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox37->Location = System::Drawing::Point(12, 216);
+			this->textBox37->MaxLength = 1;
 			this->textBox37->Multiline = true;
 			this->textBox37->Name = L"textBox37";
 			this->textBox37->Size = System::Drawing::Size(44, 43);
@@ -747,6 +787,7 @@ namespace sudoku {
 			this->textBox38->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox38->Location = System::Drawing::Point(62, 216);
+			this->textBox38->MaxLength = 1;
 			this->textBox38->Multiline = true;
 			this->textBox38->Name = L"textBox38";
 			this->textBox38->Size = System::Drawing::Size(44, 43);
@@ -761,6 +802,7 @@ namespace sudoku {
 			this->textBox39->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox39->Location = System::Drawing::Point(112, 216);
+			this->textBox39->MaxLength = 1;
 			this->textBox39->Multiline = true;
 			this->textBox39->Name = L"textBox39";
 			this->textBox39->Size = System::Drawing::Size(44, 43);
@@ -775,6 +817,7 @@ namespace sudoku {
 			this->textBox40->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox40->Location = System::Drawing::Point(171, 216);
+			this->textBox40->MaxLength = 1;
 			this->textBox40->Multiline = true;
 			this->textBox40->Name = L"textBox40";
 			this->textBox40->Size = System::Drawing::Size(44, 43);
@@ -789,6 +832,7 @@ namespace sudoku {
 			this->textBox41->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox41->Location = System::Drawing::Point(221, 216);
+			this->textBox41->MaxLength = 1;
 			this->textBox41->Multiline = true;
 			this->textBox41->Name = L"textBox41";
 			this->textBox41->Size = System::Drawing::Size(44, 43);
@@ -803,6 +847,7 @@ namespace sudoku {
 			this->textBox42->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox42->Location = System::Drawing::Point(271, 216);
+			this->textBox42->MaxLength = 1;
 			this->textBox42->Multiline = true;
 			this->textBox42->Name = L"textBox42";
 			this->textBox42->Size = System::Drawing::Size(44, 43);
@@ -817,6 +862,7 @@ namespace sudoku {
 			this->textBox43->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox43->Location = System::Drawing::Point(330, 216);
+			this->textBox43->MaxLength = 1;
 			this->textBox43->Multiline = true;
 			this->textBox43->Name = L"textBox43";
 			this->textBox43->Size = System::Drawing::Size(44, 43);
@@ -831,6 +877,7 @@ namespace sudoku {
 			this->textBox44->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox44->Location = System::Drawing::Point(380, 216);
+			this->textBox44->MaxLength = 1;
 			this->textBox44->Multiline = true;
 			this->textBox44->Name = L"textBox44";
 			this->textBox44->Size = System::Drawing::Size(44, 43);
@@ -845,6 +892,7 @@ namespace sudoku {
 			this->textBox45->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox45->Location = System::Drawing::Point(430, 216);
+			this->textBox45->MaxLength = 1;
 			this->textBox45->Multiline = true;
 			this->textBox45->Name = L"textBox45";
 			this->textBox45->Size = System::Drawing::Size(44, 43);
@@ -859,6 +907,7 @@ namespace sudoku {
 			this->textBox46->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox46->Location = System::Drawing::Point(12, 265);
+			this->textBox46->MaxLength = 1;
 			this->textBox46->Multiline = true;
 			this->textBox46->Name = L"textBox46";
 			this->textBox46->Size = System::Drawing::Size(44, 43);
@@ -873,6 +922,7 @@ namespace sudoku {
 			this->textBox47->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox47->Location = System::Drawing::Point(62, 265);
+			this->textBox47->MaxLength = 1;
 			this->textBox47->Multiline = true;
 			this->textBox47->Name = L"textBox47";
 			this->textBox47->Size = System::Drawing::Size(44, 43);
@@ -887,6 +937,7 @@ namespace sudoku {
 			this->textBox48->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox48->Location = System::Drawing::Point(112, 265);
+			this->textBox48->MaxLength = 1;
 			this->textBox48->Multiline = true;
 			this->textBox48->Name = L"textBox48";
 			this->textBox48->Size = System::Drawing::Size(44, 43);
@@ -901,6 +952,7 @@ namespace sudoku {
 			this->textBox49->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox49->Location = System::Drawing::Point(171, 265);
+			this->textBox49->MaxLength = 1;
 			this->textBox49->Multiline = true;
 			this->textBox49->Name = L"textBox49";
 			this->textBox49->Size = System::Drawing::Size(44, 43);
@@ -915,6 +967,7 @@ namespace sudoku {
 			this->textBox50->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox50->Location = System::Drawing::Point(221, 265);
+			this->textBox50->MaxLength = 1;
 			this->textBox50->Multiline = true;
 			this->textBox50->Name = L"textBox50";
 			this->textBox50->Size = System::Drawing::Size(44, 43);
@@ -929,6 +982,7 @@ namespace sudoku {
 			this->textBox51->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox51->Location = System::Drawing::Point(271, 265);
+			this->textBox51->MaxLength = 1;
 			this->textBox51->Multiline = true;
 			this->textBox51->Name = L"textBox51";
 			this->textBox51->Size = System::Drawing::Size(44, 43);
@@ -943,6 +997,7 @@ namespace sudoku {
 			this->textBox52->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox52->Location = System::Drawing::Point(330, 265);
+			this->textBox52->MaxLength = 1;
 			this->textBox52->Multiline = true;
 			this->textBox52->Name = L"textBox52";
 			this->textBox52->Size = System::Drawing::Size(44, 43);
@@ -957,6 +1012,7 @@ namespace sudoku {
 			this->textBox53->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox53->Location = System::Drawing::Point(380, 265);
+			this->textBox53->MaxLength = 1;
 			this->textBox53->Multiline = true;
 			this->textBox53->Name = L"textBox53";
 			this->textBox53->Size = System::Drawing::Size(44, 43);
@@ -971,6 +1027,7 @@ namespace sudoku {
 			this->textBox54->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox54->Location = System::Drawing::Point(430, 265);
+			this->textBox54->MaxLength = 1;
 			this->textBox54->Multiline = true;
 			this->textBox54->Name = L"textBox54";
 			this->textBox54->Size = System::Drawing::Size(44, 43);
@@ -985,6 +1042,7 @@ namespace sudoku {
 			this->textBox55->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox55->Location = System::Drawing::Point(12, 325);
+			this->textBox55->MaxLength = 1;
 			this->textBox55->Multiline = true;
 			this->textBox55->Name = L"textBox55";
 			this->textBox55->Size = System::Drawing::Size(44, 43);
@@ -999,6 +1057,7 @@ namespace sudoku {
 			this->textBox56->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox56->Location = System::Drawing::Point(62, 325);
+			this->textBox56->MaxLength = 1;
 			this->textBox56->Multiline = true;
 			this->textBox56->Name = L"textBox56";
 			this->textBox56->Size = System::Drawing::Size(44, 43);
@@ -1013,6 +1072,7 @@ namespace sudoku {
 			this->textBox57->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox57->Location = System::Drawing::Point(112, 325);
+			this->textBox57->MaxLength = 1;
 			this->textBox57->Multiline = true;
 			this->textBox57->Name = L"textBox57";
 			this->textBox57->Size = System::Drawing::Size(44, 43);
@@ -1027,6 +1087,7 @@ namespace sudoku {
 			this->textBox58->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox58->Location = System::Drawing::Point(171, 325);
+			this->textBox58->MaxLength = 1;
 			this->textBox58->Multiline = true;
 			this->textBox58->Name = L"textBox58";
 			this->textBox58->Size = System::Drawing::Size(44, 43);
@@ -1041,6 +1102,7 @@ namespace sudoku {
 			this->textBox59->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox59->Location = System::Drawing::Point(221, 325);
+			this->textBox59->MaxLength = 1;
 			this->textBox59->Multiline = true;
 			this->textBox59->Name = L"textBox59";
 			this->textBox59->Size = System::Drawing::Size(44, 43);
@@ -1055,6 +1117,7 @@ namespace sudoku {
 			this->textBox60->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox60->Location = System::Drawing::Point(271, 325);
+			this->textBox60->MaxLength = 1;
 			this->textBox60->Multiline = true;
 			this->textBox60->Name = L"textBox60";
 			this->textBox60->Size = System::Drawing::Size(44, 43);
@@ -1069,6 +1132,7 @@ namespace sudoku {
 			this->textBox61->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox61->Location = System::Drawing::Point(330, 325);
+			this->textBox61->MaxLength = 1;
 			this->textBox61->Multiline = true;
 			this->textBox61->Name = L"textBox61";
 			this->textBox61->Size = System::Drawing::Size(44, 43);
@@ -1083,6 +1147,7 @@ namespace sudoku {
 			this->textBox62->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox62->Location = System::Drawing::Point(380, 325);
+			this->textBox62->MaxLength = 1;
 			this->textBox62->Multiline = true;
 			this->textBox62->Name = L"textBox62";
 			this->textBox62->Size = System::Drawing::Size(44, 43);
@@ -1097,6 +1162,7 @@ namespace sudoku {
 			this->textBox63->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox63->Location = System::Drawing::Point(430, 325);
+			this->textBox63->MaxLength = 1;
 			this->textBox63->Multiline = true;
 			this->textBox63->Name = L"textBox63";
 			this->textBox63->Size = System::Drawing::Size(44, 43);
@@ -1111,6 +1177,7 @@ namespace sudoku {
 			this->textBox64->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox64->Location = System::Drawing::Point(12, 374);
+			this->textBox64->MaxLength = 1;
 			this->textBox64->Multiline = true;
 			this->textBox64->Name = L"textBox64";
 			this->textBox64->Size = System::Drawing::Size(44, 43);
@@ -1125,6 +1192,7 @@ namespace sudoku {
 			this->textBox65->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox65->Location = System::Drawing::Point(62, 374);
+			this->textBox65->MaxLength = 1;
 			this->textBox65->Multiline = true;
 			this->textBox65->Name = L"textBox65";
 			this->textBox65->Size = System::Drawing::Size(44, 43);
@@ -1139,6 +1207,7 @@ namespace sudoku {
 			this->textBox66->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox66->Location = System::Drawing::Point(112, 374);
+			this->textBox66->MaxLength = 1;
 			this->textBox66->Multiline = true;
 			this->textBox66->Name = L"textBox66";
 			this->textBox66->Size = System::Drawing::Size(44, 43);
@@ -1153,6 +1222,7 @@ namespace sudoku {
 			this->textBox67->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox67->Location = System::Drawing::Point(171, 374);
+			this->textBox67->MaxLength = 1;
 			this->textBox67->Multiline = true;
 			this->textBox67->Name = L"textBox67";
 			this->textBox67->Size = System::Drawing::Size(44, 43);
@@ -1167,6 +1237,7 @@ namespace sudoku {
 			this->textBox68->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox68->Location = System::Drawing::Point(221, 374);
+			this->textBox68->MaxLength = 1;
 			this->textBox68->Multiline = true;
 			this->textBox68->Name = L"textBox68";
 			this->textBox68->Size = System::Drawing::Size(44, 43);
@@ -1181,6 +1252,7 @@ namespace sudoku {
 			this->textBox69->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox69->Location = System::Drawing::Point(271, 374);
+			this->textBox69->MaxLength = 1;
 			this->textBox69->Multiline = true;
 			this->textBox69->Name = L"textBox69";
 			this->textBox69->Size = System::Drawing::Size(44, 43);
@@ -1195,6 +1267,7 @@ namespace sudoku {
 			this->textBox70->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox70->Location = System::Drawing::Point(330, 374);
+			this->textBox70->MaxLength = 1;
 			this->textBox70->Multiline = true;
 			this->textBox70->Name = L"textBox70";
 			this->textBox70->Size = System::Drawing::Size(44, 43);
@@ -1209,6 +1282,7 @@ namespace sudoku {
 			this->textBox71->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox71->Location = System::Drawing::Point(380, 374);
+			this->textBox71->MaxLength = 1;
 			this->textBox71->Multiline = true;
 			this->textBox71->Name = L"textBox71";
 			this->textBox71->Size = System::Drawing::Size(44, 43);
@@ -1223,6 +1297,7 @@ namespace sudoku {
 			this->textBox72->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox72->Location = System::Drawing::Point(430, 374);
+			this->textBox72->MaxLength = 1;
 			this->textBox72->Multiline = true;
 			this->textBox72->Name = L"textBox72";
 			this->textBox72->Size = System::Drawing::Size(44, 43);
@@ -1237,6 +1312,7 @@ namespace sudoku {
 			this->textBox73->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox73->Location = System::Drawing::Point(12, 423);
+			this->textBox73->MaxLength = 1;
 			this->textBox73->Multiline = true;
 			this->textBox73->Name = L"textBox73";
 			this->textBox73->Size = System::Drawing::Size(44, 43);
@@ -1251,6 +1327,7 @@ namespace sudoku {
 			this->textBox74->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox74->Location = System::Drawing::Point(62, 423);
+			this->textBox74->MaxLength = 1;
 			this->textBox74->Multiline = true;
 			this->textBox74->Name = L"textBox74";
 			this->textBox74->Size = System::Drawing::Size(44, 43);
@@ -1265,6 +1342,7 @@ namespace sudoku {
 			this->textBox75->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox75->Location = System::Drawing::Point(112, 423);
+			this->textBox75->MaxLength = 1;
 			this->textBox75->Multiline = true;
 			this->textBox75->Name = L"textBox75";
 			this->textBox75->Size = System::Drawing::Size(44, 43);
@@ -1279,6 +1357,7 @@ namespace sudoku {
 			this->textBox76->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox76->Location = System::Drawing::Point(171, 423);
+			this->textBox76->MaxLength = 1;
 			this->textBox76->Multiline = true;
 			this->textBox76->Name = L"textBox76";
 			this->textBox76->Size = System::Drawing::Size(44, 43);
@@ -1293,6 +1372,7 @@ namespace sudoku {
 			this->textBox77->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox77->Location = System::Drawing::Point(221, 423);
+			this->textBox77->MaxLength = 1;
 			this->textBox77->Multiline = true;
 			this->textBox77->Name = L"textBox77";
 			this->textBox77->Size = System::Drawing::Size(44, 43);
@@ -1307,6 +1387,7 @@ namespace sudoku {
 			this->textBox78->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox78->Location = System::Drawing::Point(271, 423);
+			this->textBox78->MaxLength = 1;
 			this->textBox78->Multiline = true;
 			this->textBox78->Name = L"textBox78";
 			this->textBox78->Size = System::Drawing::Size(44, 43);
@@ -1321,6 +1402,7 @@ namespace sudoku {
 			this->textBox79->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox79->Location = System::Drawing::Point(330, 423);
+			this->textBox79->MaxLength = 1;
 			this->textBox79->Multiline = true;
 			this->textBox79->Name = L"textBox79";
 			this->textBox79->Size = System::Drawing::Size(44, 43);
@@ -1335,6 +1417,7 @@ namespace sudoku {
 			this->textBox80->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox80->Location = System::Drawing::Point(380, 423);
+			this->textBox80->MaxLength = 1;
 			this->textBox80->Multiline = true;
 			this->textBox80->Name = L"textBox80";
 			this->textBox80->Size = System::Drawing::Size(44, 43);
@@ -1349,6 +1432,7 @@ namespace sudoku {
 			this->textBox81->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox81->Location = System::Drawing::Point(430, 423);
+			this->textBox81->MaxLength = 1;
 			this->textBox81->Multiline = true;
 			this->textBox81->Name = L"textBox81";
 			this->textBox81->Size = System::Drawing::Size(44, 43);
@@ -1451,14 +1535,9 @@ namespace sudoku {
 
 		}
 #pragma endregion
-	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-			 }
+	
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 }
-	private: System::Void textBox1_TextChanged_1(System::Object^  sender, System::EventArgs^  e) {
-			 }
-private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-		 }
 private: System::Void Sudokuframe_Load(System::Object^  sender, System::EventArgs^  e) {
 			 textBox1->TextAlign = HorizontalAlignment::Center;
 			 textBox2->TextAlign = HorizontalAlignment::Center;
@@ -1797,6 +1876,21 @@ private: System::Void Sudokuframe_Load(System::Object^  sender, System::EventArg
 
 			
 		 }
+ private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+					  bool TZFound = false;
+if (Char::IsDigit(e->KeyChar) == true) return;
+if (e->KeyChar == (char)Keys::Back) return;
+e->Handled = true;
+
+				  }
+
+/*private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+
+			 }
+private: System::Void textBox1_TextChanged_1(System::Object^  sender, System::EventArgs^  e) {
+			 }*/
+private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+		 }
 private: System::Void textBox8_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 		 }
 private: System::Void textBox3_TextChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -1954,6 +2048,8 @@ private: System::Void textBox79_TextChanged(System::Object^  sender, System::Eve
 private: System::Void textBox80_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 		 }
 private: System::Void textBox81_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 		 }
 };
 }
