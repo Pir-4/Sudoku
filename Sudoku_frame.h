@@ -29,7 +29,7 @@ namespace sudoku {
 			C=newc;
 			srand(time(NULL));
 			int n=rand()%129;
-			//n=1;
+			n=1;
 			C->input(n);
 		}
 
