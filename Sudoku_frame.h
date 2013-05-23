@@ -11,6 +11,7 @@ namespace sudoku {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	//using namespace System::Windows::Forms::DialogResult;
 
 	/// <summary>
 	/// Summary for Sudokuframe
@@ -18,6 +19,7 @@ namespace sudoku {
 	public ref class Sudokuframe : public System::Windows::Forms::Form
 	{
 		main_table* C;
+		int flag;
 
 		String^ TorZ;
 	public:
@@ -25,12 +27,8 @@ namespace sudoku {
 		Sudokuframe(void)
 		{
 			InitializeComponent();
-			main_table *newc= new main_table();
-			C=newc;
-			srand(time(NULL));
-			int n=rand()%129;
-			n=1;
-			C->input(n);
+			installation();
+
 		}
 
 	protected:
@@ -381,7 +379,7 @@ namespace sudoku {
 			this->textBox10->Multiline = true;
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->Size = System::Drawing::Size(44, 43);
-			this->textBox10->TabIndex = 17;
+			this->textBox10->TabIndex = 9;
 			this->textBox10->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox10->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox10_TextChanged);
 			this->textBox10->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox10_KeyPress);
@@ -397,7 +395,7 @@ namespace sudoku {
 			this->textBox11->Multiline = true;
 			this->textBox11->Name = L"textBox11";
 			this->textBox11->Size = System::Drawing::Size(44, 43);
-			this->textBox11->TabIndex = 16;
+			this->textBox11->TabIndex = 10;
 			this->textBox11->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox11->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox11_TextChanged);
 			this->textBox11->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox11_KeyPress);
@@ -413,7 +411,7 @@ namespace sudoku {
 			this->textBox12->Multiline = true;
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->Size = System::Drawing::Size(44, 43);
-			this->textBox12->TabIndex = 15;
+			this->textBox12->TabIndex = 11;
 			this->textBox12->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox12->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox12_TextChanged);
 			this->textBox12->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox12_KeyPress);
@@ -429,7 +427,7 @@ namespace sudoku {
 			this->textBox13->Multiline = true;
 			this->textBox13->Name = L"textBox13";
 			this->textBox13->Size = System::Drawing::Size(44, 43);
-			this->textBox13->TabIndex = 14;
+			this->textBox13->TabIndex = 12;
 			this->textBox13->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox13->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox13_TextChanged);
 			this->textBox13->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox13_KeyPress);
@@ -461,7 +459,7 @@ namespace sudoku {
 			this->textBox15->Multiline = true;
 			this->textBox15->Name = L"textBox15";
 			this->textBox15->Size = System::Drawing::Size(44, 43);
-			this->textBox15->TabIndex = 12;
+			this->textBox15->TabIndex = 14;
 			this->textBox15->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox15->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox15_TextChanged);
 			this->textBox15->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox15_KeyPress);
@@ -477,7 +475,7 @@ namespace sudoku {
 			this->textBox16->Multiline = true;
 			this->textBox16->Name = L"textBox16";
 			this->textBox16->Size = System::Drawing::Size(44, 43);
-			this->textBox16->TabIndex = 11;
+			this->textBox16->TabIndex = 15;
 			this->textBox16->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox16->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox16_TextChanged);
 			this->textBox16->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox16_KeyPress);
@@ -493,7 +491,7 @@ namespace sudoku {
 			this->textBox17->Multiline = true;
 			this->textBox17->Name = L"textBox17";
 			this->textBox17->Size = System::Drawing::Size(44, 43);
-			this->textBox17->TabIndex = 10;
+			this->textBox17->TabIndex = 16;
 			this->textBox17->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox17->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox17_TextChanged);
 			this->textBox17->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox17_KeyPress);
@@ -509,7 +507,7 @@ namespace sudoku {
 			this->textBox18->Multiline = true;
 			this->textBox18->Name = L"textBox18";
 			this->textBox18->Size = System::Drawing::Size(44, 43);
-			this->textBox18->TabIndex = 9;
+			this->textBox18->TabIndex = 17;
 			this->textBox18->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox18->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox18_TextChanged);
 			this->textBox18->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox18_KeyPress);
@@ -525,7 +523,7 @@ namespace sudoku {
 			this->textBox19->Multiline = true;
 			this->textBox19->Name = L"textBox19";
 			this->textBox19->Size = System::Drawing::Size(44, 43);
-			this->textBox19->TabIndex = 26;
+			this->textBox19->TabIndex = 18;
 			this->textBox19->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox19->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox19_TextChanged);
 			this->textBox19->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox19_KeyPress);
@@ -541,7 +539,7 @@ namespace sudoku {
 			this->textBox20->Multiline = true;
 			this->textBox20->Name = L"textBox20";
 			this->textBox20->Size = System::Drawing::Size(44, 43);
-			this->textBox20->TabIndex = 25;
+			this->textBox20->TabIndex = 19;
 			this->textBox20->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox20->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox20_TextChanged);
 			this->textBox20->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox20_KeyPress);
@@ -557,7 +555,7 @@ namespace sudoku {
 			this->textBox21->Multiline = true;
 			this->textBox21->Name = L"textBox21";
 			this->textBox21->Size = System::Drawing::Size(44, 43);
-			this->textBox21->TabIndex = 24;
+			this->textBox21->TabIndex = 20;
 			this->textBox21->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox21->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox21_TextChanged);
 			this->textBox21->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox21_KeyPress);
@@ -573,7 +571,7 @@ namespace sudoku {
 			this->textBox22->Multiline = true;
 			this->textBox22->Name = L"textBox22";
 			this->textBox22->Size = System::Drawing::Size(44, 43);
-			this->textBox22->TabIndex = 23;
+			this->textBox22->TabIndex = 21;
 			this->textBox22->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox22->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox22_TextChanged);
 			this->textBox22->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox22_KeyPress);
@@ -605,7 +603,7 @@ namespace sudoku {
 			this->textBox24->Multiline = true;
 			this->textBox24->Name = L"textBox24";
 			this->textBox24->Size = System::Drawing::Size(44, 43);
-			this->textBox24->TabIndex = 21;
+			this->textBox24->TabIndex = 23;
 			this->textBox24->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox24->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox24_TextChanged);
 			this->textBox24->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox24_KeyPress);
@@ -621,7 +619,7 @@ namespace sudoku {
 			this->textBox25->Multiline = true;
 			this->textBox25->Name = L"textBox25";
 			this->textBox25->Size = System::Drawing::Size(44, 43);
-			this->textBox25->TabIndex = 20;
+			this->textBox25->TabIndex = 24;
 			this->textBox25->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox25->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox25_TextChanged);
 			this->textBox25->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox25_KeyPress);
@@ -637,7 +635,7 @@ namespace sudoku {
 			this->textBox26->Multiline = true;
 			this->textBox26->Name = L"textBox26";
 			this->textBox26->Size = System::Drawing::Size(44, 43);
-			this->textBox26->TabIndex = 19;
+			this->textBox26->TabIndex = 25;
 			this->textBox26->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox26->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox26_TextChanged);
 			this->textBox26->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox26_KeyPress);
@@ -653,7 +651,7 @@ namespace sudoku {
 			this->textBox27->Multiline = true;
 			this->textBox27->Name = L"textBox27";
 			this->textBox27->Size = System::Drawing::Size(44, 43);
-			this->textBox27->TabIndex = 18;
+			this->textBox27->TabIndex = 26;
 			this->textBox27->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox27->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox27_TextChanged);
 			this->textBox27->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox27_KeyPress);
@@ -669,7 +667,7 @@ namespace sudoku {
 			this->textBox28->Multiline = true;
 			this->textBox28->Name = L"textBox28";
 			this->textBox28->Size = System::Drawing::Size(44, 43);
-			this->textBox28->TabIndex = 35;
+			this->textBox28->TabIndex = 27;
 			this->textBox28->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox28->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox28_TextChanged);
 			this->textBox28->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox28_KeyPress);
@@ -685,7 +683,7 @@ namespace sudoku {
 			this->textBox29->Multiline = true;
 			this->textBox29->Name = L"textBox29";
 			this->textBox29->Size = System::Drawing::Size(44, 43);
-			this->textBox29->TabIndex = 34;
+			this->textBox29->TabIndex = 28;
 			this->textBox29->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox29->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox29_TextChanged);
 			this->textBox29->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox29_KeyPress);
@@ -701,7 +699,7 @@ namespace sudoku {
 			this->textBox30->Multiline = true;
 			this->textBox30->Name = L"textBox30";
 			this->textBox30->Size = System::Drawing::Size(44, 43);
-			this->textBox30->TabIndex = 33;
+			this->textBox30->TabIndex = 29;
 			this->textBox30->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox30->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox30_TextChanged);
 			this->textBox30->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox30_KeyPress);
@@ -717,7 +715,7 @@ namespace sudoku {
 			this->textBox31->Multiline = true;
 			this->textBox31->Name = L"textBox31";
 			this->textBox31->Size = System::Drawing::Size(44, 43);
-			this->textBox31->TabIndex = 32;
+			this->textBox31->TabIndex = 30;
 			this->textBox31->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox31->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox31_TextChanged);
 			this->textBox31->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox31_KeyPress);
@@ -749,7 +747,7 @@ namespace sudoku {
 			this->textBox33->Multiline = true;
 			this->textBox33->Name = L"textBox33";
 			this->textBox33->Size = System::Drawing::Size(44, 43);
-			this->textBox33->TabIndex = 30;
+			this->textBox33->TabIndex = 32;
 			this->textBox33->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox33->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox33_TextChanged);
 			this->textBox33->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox33_KeyPress);
@@ -765,7 +763,7 @@ namespace sudoku {
 			this->textBox34->Multiline = true;
 			this->textBox34->Name = L"textBox34";
 			this->textBox34->Size = System::Drawing::Size(44, 43);
-			this->textBox34->TabIndex = 29;
+			this->textBox34->TabIndex = 33;
 			this->textBox34->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox34->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox34_TextChanged);
 			this->textBox34->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox34_KeyPress);
@@ -781,7 +779,7 @@ namespace sudoku {
 			this->textBox35->Multiline = true;
 			this->textBox35->Name = L"textBox35";
 			this->textBox35->Size = System::Drawing::Size(44, 43);
-			this->textBox35->TabIndex = 28;
+			this->textBox35->TabIndex = 34;
 			this->textBox35->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox35->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox35_TextChanged);
 			this->textBox35->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox35_KeyPress);
@@ -797,7 +795,7 @@ namespace sudoku {
 			this->textBox36->Multiline = true;
 			this->textBox36->Name = L"textBox36";
 			this->textBox36->Size = System::Drawing::Size(44, 43);
-			this->textBox36->TabIndex = 27;
+			this->textBox36->TabIndex = 35;
 			this->textBox36->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox36->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox36_TextChanged);
 			this->textBox36->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox36_KeyPress);
@@ -813,7 +811,7 @@ namespace sudoku {
 			this->textBox37->Multiline = true;
 			this->textBox37->Name = L"textBox37";
 			this->textBox37->Size = System::Drawing::Size(44, 43);
-			this->textBox37->TabIndex = 44;
+			this->textBox37->TabIndex = 36;
 			this->textBox37->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox37->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox37_TextChanged);
 			this->textBox37->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox37_KeyPress);
@@ -829,7 +827,7 @@ namespace sudoku {
 			this->textBox38->Multiline = true;
 			this->textBox38->Name = L"textBox38";
 			this->textBox38->Size = System::Drawing::Size(44, 43);
-			this->textBox38->TabIndex = 43;
+			this->textBox38->TabIndex = 37;
 			this->textBox38->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox38->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox38_TextChanged);
 			this->textBox38->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox38_KeyPress);
@@ -845,7 +843,7 @@ namespace sudoku {
 			this->textBox39->Multiline = true;
 			this->textBox39->Name = L"textBox39";
 			this->textBox39->Size = System::Drawing::Size(44, 43);
-			this->textBox39->TabIndex = 42;
+			this->textBox39->TabIndex = 38;
 			this->textBox39->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox39->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox39_TextChanged);
 			this->textBox39->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox39_KeyPress);
@@ -861,7 +859,7 @@ namespace sudoku {
 			this->textBox40->Multiline = true;
 			this->textBox40->Name = L"textBox40";
 			this->textBox40->Size = System::Drawing::Size(44, 43);
-			this->textBox40->TabIndex = 41;
+			this->textBox40->TabIndex = 39;
 			this->textBox40->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox40->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox40_TextChanged);
 			this->textBox40->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox40_KeyPress);
@@ -893,7 +891,7 @@ namespace sudoku {
 			this->textBox42->Multiline = true;
 			this->textBox42->Name = L"textBox42";
 			this->textBox42->Size = System::Drawing::Size(44, 43);
-			this->textBox42->TabIndex = 39;
+			this->textBox42->TabIndex = 41;
 			this->textBox42->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox42->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox42_TextChanged);
 			this->textBox42->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox42_KeyPress);
@@ -909,7 +907,7 @@ namespace sudoku {
 			this->textBox43->Multiline = true;
 			this->textBox43->Name = L"textBox43";
 			this->textBox43->Size = System::Drawing::Size(44, 43);
-			this->textBox43->TabIndex = 38;
+			this->textBox43->TabIndex = 42;
 			this->textBox43->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox43->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox43_TextChanged);
 			this->textBox43->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox43_KeyPress);
@@ -925,7 +923,7 @@ namespace sudoku {
 			this->textBox44->Multiline = true;
 			this->textBox44->Name = L"textBox44";
 			this->textBox44->Size = System::Drawing::Size(44, 43);
-			this->textBox44->TabIndex = 37;
+			this->textBox44->TabIndex = 43;
 			this->textBox44->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox44->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox44_TextChanged);
 			this->textBox44->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox44_KeyPress);
@@ -941,7 +939,7 @@ namespace sudoku {
 			this->textBox45->Multiline = true;
 			this->textBox45->Name = L"textBox45";
 			this->textBox45->Size = System::Drawing::Size(44, 43);
-			this->textBox45->TabIndex = 36;
+			this->textBox45->TabIndex = 44;
 			this->textBox45->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox45->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox45_TextChanged);
 			this->textBox45->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox45_KeyPress);
@@ -957,7 +955,7 @@ namespace sudoku {
 			this->textBox46->Multiline = true;
 			this->textBox46->Name = L"textBox46";
 			this->textBox46->Size = System::Drawing::Size(44, 43);
-			this->textBox46->TabIndex = 53;
+			this->textBox46->TabIndex = 45;
 			this->textBox46->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox46->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox46_TextChanged);
 			this->textBox46->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox46_KeyPress);
@@ -973,7 +971,7 @@ namespace sudoku {
 			this->textBox47->Multiline = true;
 			this->textBox47->Name = L"textBox47";
 			this->textBox47->Size = System::Drawing::Size(44, 43);
-			this->textBox47->TabIndex = 52;
+			this->textBox47->TabIndex = 46;
 			this->textBox47->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox47->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox47_TextChanged);
 			this->textBox47->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox47_KeyPress);
@@ -989,7 +987,7 @@ namespace sudoku {
 			this->textBox48->Multiline = true;
 			this->textBox48->Name = L"textBox48";
 			this->textBox48->Size = System::Drawing::Size(44, 43);
-			this->textBox48->TabIndex = 51;
+			this->textBox48->TabIndex = 47;
 			this->textBox48->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox48->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox48_TextChanged);
 			this->textBox48->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox48_KeyPress);
@@ -1005,7 +1003,7 @@ namespace sudoku {
 			this->textBox49->Multiline = true;
 			this->textBox49->Name = L"textBox49";
 			this->textBox49->Size = System::Drawing::Size(44, 43);
-			this->textBox49->TabIndex = 50;
+			this->textBox49->TabIndex = 48;
 			this->textBox49->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox49->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox49_TextChanged);
 			this->textBox49->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox49_KeyPress);
@@ -1037,7 +1035,7 @@ namespace sudoku {
 			this->textBox51->Multiline = true;
 			this->textBox51->Name = L"textBox51";
 			this->textBox51->Size = System::Drawing::Size(44, 43);
-			this->textBox51->TabIndex = 48;
+			this->textBox51->TabIndex = 50;
 			this->textBox51->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox51->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox51_TextChanged);
 			this->textBox51->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox51_KeyPress);
@@ -1053,7 +1051,7 @@ namespace sudoku {
 			this->textBox52->Multiline = true;
 			this->textBox52->Name = L"textBox52";
 			this->textBox52->Size = System::Drawing::Size(44, 43);
-			this->textBox52->TabIndex = 47;
+			this->textBox52->TabIndex = 51;
 			this->textBox52->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox52->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox52_TextChanged);
 			this->textBox52->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox52_KeyPress);
@@ -1069,7 +1067,7 @@ namespace sudoku {
 			this->textBox53->Multiline = true;
 			this->textBox53->Name = L"textBox53";
 			this->textBox53->Size = System::Drawing::Size(44, 43);
-			this->textBox53->TabIndex = 46;
+			this->textBox53->TabIndex = 52;
 			this->textBox53->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox53->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox53_TextChanged);
 			this->textBox53->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox53_KeyPress);
@@ -1085,7 +1083,7 @@ namespace sudoku {
 			this->textBox54->Multiline = true;
 			this->textBox54->Name = L"textBox54";
 			this->textBox54->Size = System::Drawing::Size(44, 43);
-			this->textBox54->TabIndex = 45;
+			this->textBox54->TabIndex = 53;
 			this->textBox54->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox54->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox54_TextChanged);
 			this->textBox54->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox54_KeyPress);
@@ -1101,7 +1099,7 @@ namespace sudoku {
 			this->textBox55->Multiline = true;
 			this->textBox55->Name = L"textBox55";
 			this->textBox55->Size = System::Drawing::Size(44, 43);
-			this->textBox55->TabIndex = 62;
+			this->textBox55->TabIndex = 54;
 			this->textBox55->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox55->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox55_TextChanged);
 			this->textBox55->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox55_KeyPress);
@@ -1117,7 +1115,7 @@ namespace sudoku {
 			this->textBox56->Multiline = true;
 			this->textBox56->Name = L"textBox56";
 			this->textBox56->Size = System::Drawing::Size(44, 43);
-			this->textBox56->TabIndex = 61;
+			this->textBox56->TabIndex = 55;
 			this->textBox56->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox56->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox56_TextChanged);
 			this->textBox56->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox56_KeyPress);
@@ -1133,7 +1131,7 @@ namespace sudoku {
 			this->textBox57->Multiline = true;
 			this->textBox57->Name = L"textBox57";
 			this->textBox57->Size = System::Drawing::Size(44, 43);
-			this->textBox57->TabIndex = 60;
+			this->textBox57->TabIndex = 56;
 			this->textBox57->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox57->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox57_TextChanged);
 			this->textBox57->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox57_KeyPress);
@@ -1149,7 +1147,7 @@ namespace sudoku {
 			this->textBox58->Multiline = true;
 			this->textBox58->Name = L"textBox58";
 			this->textBox58->Size = System::Drawing::Size(44, 43);
-			this->textBox58->TabIndex = 59;
+			this->textBox58->TabIndex = 57;
 			this->textBox58->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox58->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox58_TextChanged);
 			this->textBox58->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox58_KeyPress);
@@ -1181,7 +1179,7 @@ namespace sudoku {
 			this->textBox60->Multiline = true;
 			this->textBox60->Name = L"textBox60";
 			this->textBox60->Size = System::Drawing::Size(44, 43);
-			this->textBox60->TabIndex = 57;
+			this->textBox60->TabIndex = 59;
 			this->textBox60->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox60->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox60_TextChanged);
 			this->textBox60->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox60_KeyPress);
@@ -1197,7 +1195,7 @@ namespace sudoku {
 			this->textBox61->Multiline = true;
 			this->textBox61->Name = L"textBox61";
 			this->textBox61->Size = System::Drawing::Size(44, 43);
-			this->textBox61->TabIndex = 56;
+			this->textBox61->TabIndex = 60;
 			this->textBox61->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox61->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox61_TextChanged);
 			this->textBox61->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox61_KeyPress);
@@ -1213,7 +1211,7 @@ namespace sudoku {
 			this->textBox62->Multiline = true;
 			this->textBox62->Name = L"textBox62";
 			this->textBox62->Size = System::Drawing::Size(44, 43);
-			this->textBox62->TabIndex = 55;
+			this->textBox62->TabIndex = 61;
 			this->textBox62->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox62->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox62_TextChanged);
 			this->textBox62->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox62_KeyPress);
@@ -1229,7 +1227,7 @@ namespace sudoku {
 			this->textBox63->Multiline = true;
 			this->textBox63->Name = L"textBox63";
 			this->textBox63->Size = System::Drawing::Size(44, 43);
-			this->textBox63->TabIndex = 54;
+			this->textBox63->TabIndex = 62;
 			this->textBox63->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox63->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox63_TextChanged);
 			this->textBox63->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox63_KeyPress);
@@ -1245,7 +1243,7 @@ namespace sudoku {
 			this->textBox64->Multiline = true;
 			this->textBox64->Name = L"textBox64";
 			this->textBox64->Size = System::Drawing::Size(44, 43);
-			this->textBox64->TabIndex = 71;
+			this->textBox64->TabIndex = 63;
 			this->textBox64->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox64->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox64_TextChanged);
 			this->textBox64->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox64_KeyPress);
@@ -1261,7 +1259,7 @@ namespace sudoku {
 			this->textBox65->Multiline = true;
 			this->textBox65->Name = L"textBox65";
 			this->textBox65->Size = System::Drawing::Size(44, 43);
-			this->textBox65->TabIndex = 70;
+			this->textBox65->TabIndex = 64;
 			this->textBox65->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox65->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox65_TextChanged);
 			this->textBox65->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox65_KeyPress);
@@ -1277,7 +1275,7 @@ namespace sudoku {
 			this->textBox66->Multiline = true;
 			this->textBox66->Name = L"textBox66";
 			this->textBox66->Size = System::Drawing::Size(44, 43);
-			this->textBox66->TabIndex = 69;
+			this->textBox66->TabIndex = 65;
 			this->textBox66->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox66->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox66_TextChanged);
 			this->textBox66->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox66_KeyPress);
@@ -1293,7 +1291,7 @@ namespace sudoku {
 			this->textBox67->Multiline = true;
 			this->textBox67->Name = L"textBox67";
 			this->textBox67->Size = System::Drawing::Size(44, 43);
-			this->textBox67->TabIndex = 68;
+			this->textBox67->TabIndex = 66;
 			this->textBox67->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox67->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox67_TextChanged);
 			this->textBox67->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox67_KeyPress);
@@ -1325,7 +1323,7 @@ namespace sudoku {
 			this->textBox69->Multiline = true;
 			this->textBox69->Name = L"textBox69";
 			this->textBox69->Size = System::Drawing::Size(44, 43);
-			this->textBox69->TabIndex = 66;
+			this->textBox69->TabIndex = 68;
 			this->textBox69->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox69->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox69_TextChanged);
 			this->textBox69->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox69_KeyPress);
@@ -1341,7 +1339,7 @@ namespace sudoku {
 			this->textBox70->Multiline = true;
 			this->textBox70->Name = L"textBox70";
 			this->textBox70->Size = System::Drawing::Size(44, 43);
-			this->textBox70->TabIndex = 65;
+			this->textBox70->TabIndex = 69;
 			this->textBox70->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox70->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox70_TextChanged);
 			this->textBox70->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox70_KeyPress);
@@ -1357,7 +1355,7 @@ namespace sudoku {
 			this->textBox71->Multiline = true;
 			this->textBox71->Name = L"textBox71";
 			this->textBox71->Size = System::Drawing::Size(44, 43);
-			this->textBox71->TabIndex = 64;
+			this->textBox71->TabIndex = 70;
 			this->textBox71->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox71->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox71_TextChanged);
 			this->textBox71->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox71_KeyPress);
@@ -1373,7 +1371,7 @@ namespace sudoku {
 			this->textBox72->Multiline = true;
 			this->textBox72->Name = L"textBox72";
 			this->textBox72->Size = System::Drawing::Size(44, 43);
-			this->textBox72->TabIndex = 63;
+			this->textBox72->TabIndex = 71;
 			this->textBox72->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox72->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox72_TextChanged);
 			this->textBox72->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox72_KeyPress);
@@ -1389,7 +1387,7 @@ namespace sudoku {
 			this->textBox73->Multiline = true;
 			this->textBox73->Name = L"textBox73";
 			this->textBox73->Size = System::Drawing::Size(44, 43);
-			this->textBox73->TabIndex = 80;
+			this->textBox73->TabIndex = 72;
 			this->textBox73->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox73->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox73_TextChanged);
 			this->textBox73->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox73_KeyPress);
@@ -1405,7 +1403,7 @@ namespace sudoku {
 			this->textBox74->Multiline = true;
 			this->textBox74->Name = L"textBox74";
 			this->textBox74->Size = System::Drawing::Size(44, 43);
-			this->textBox74->TabIndex = 79;
+			this->textBox74->TabIndex = 73;
 			this->textBox74->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox74->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox74_TextChanged);
 			this->textBox74->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox74_KeyPress);
@@ -1421,7 +1419,7 @@ namespace sudoku {
 			this->textBox75->Multiline = true;
 			this->textBox75->Name = L"textBox75";
 			this->textBox75->Size = System::Drawing::Size(44, 43);
-			this->textBox75->TabIndex = 78;
+			this->textBox75->TabIndex = 74;
 			this->textBox75->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox75->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox75_TextChanged);
 			this->textBox75->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox75_KeyPress);
@@ -1437,7 +1435,7 @@ namespace sudoku {
 			this->textBox76->Multiline = true;
 			this->textBox76->Name = L"textBox76";
 			this->textBox76->Size = System::Drawing::Size(44, 43);
-			this->textBox76->TabIndex = 77;
+			this->textBox76->TabIndex = 75;
 			this->textBox76->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox76->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox76_TextChanged);
 			this->textBox76->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox76_KeyPress);
@@ -1469,7 +1467,7 @@ namespace sudoku {
 			this->textBox78->Multiline = true;
 			this->textBox78->Name = L"textBox78";
 			this->textBox78->Size = System::Drawing::Size(44, 43);
-			this->textBox78->TabIndex = 75;
+			this->textBox78->TabIndex = 77;
 			this->textBox78->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox78->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox78_TextChanged);
 			this->textBox78->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox78_KeyPress);
@@ -1485,7 +1483,7 @@ namespace sudoku {
 			this->textBox79->Multiline = true;
 			this->textBox79->Name = L"textBox79";
 			this->textBox79->Size = System::Drawing::Size(44, 43);
-			this->textBox79->TabIndex = 74;
+			this->textBox79->TabIndex = 78;
 			this->textBox79->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox79->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox79_TextChanged);
 			this->textBox79->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox79_KeyPress);
@@ -1501,7 +1499,7 @@ namespace sudoku {
 			this->textBox80->Multiline = true;
 			this->textBox80->Name = L"textBox80";
 			this->textBox80->Size = System::Drawing::Size(44, 43);
-			this->textBox80->TabIndex = 73;
+			this->textBox80->TabIndex = 79;
 			this->textBox80->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox80->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox80_TextChanged);
 			this->textBox80->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox80_KeyPress);
@@ -1517,7 +1515,7 @@ namespace sudoku {
 			this->textBox81->Multiline = true;
 			this->textBox81->Name = L"textBox81";
 			this->textBox81->Size = System::Drawing::Size(44, 43);
-			this->textBox81->TabIndex = 72;
+			this->textBox81->TabIndex = 80;
 			this->textBox81->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->textBox81->TextChanged += gcnew System::EventHandler(this, &Sudokuframe::textBox81_TextChanged);
 			this->textBox81->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sudokuframe::textBox81_KeyPress);
@@ -1610,18 +1608,25 @@ namespace sudoku {
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Name = L"Sudokuframe";
-			this->Text = L"Sudokuframe";
+			this->Text = L"Судоку";
 			this->Load += gcnew System::EventHandler(this, &Sudokuframe::Sudokuframe_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-
-	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: void installation()
+			 {
+				 C = new main_table();
+				 //C=newc;
+				 srand(time(NULL));
+				 int n=rand()%2;
+				 //n=1;
+				 flag=0;
+				 C->input(n);
 			 }
-	private: System::Void Sudokuframe_Load(System::Object^  sender, System::EventArgs^  e) {
-				 C->print_arr();
+	private: void download()
+			 {
 				 int i=0;
 				 int f=0;
 				 int a;
@@ -1629,7 +1634,14 @@ namespace sudoku {
 				 {
 					 a=C->get_arr(i,f);
 					 TextBox^ t = (TextBox^)this->Controls["textBox"+p.ToString()];
-					 if(a!=0) t->Text=String::Format(" {0:F0}", a);
+					 if(a!=0) 
+					 {
+						 t->Text=String::Format(" {0:F0}", a);
+					 }
+					 else 
+					 {
+						 t->Text="";
+					 }
 					 if(C->get_ref_arr(i,f)) t->Enabled=false;
 					 t->TextAlign = HorizontalAlignment::Center;
 					 f++;
@@ -1639,7 +1651,12 @@ namespace sudoku {
 						 i++;
 					 }
 				 }
+			 }
 
+	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+			 }
+	private: System::Void Sudokuframe_Load(System::Object^  sender, System::EventArgs^  e) {
+				 download();
 			 }
 	private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 				 bool TZFound = false;
@@ -2230,11 +2247,13 @@ namespace sudoku {
 
 
 	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+				 String ^text = textBox1->Text;
+				 int p;
 				 Single a= 0;
 				 Single A = Single::TryParse(textBox1->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
-				 int p=C->user_input(a,0,0);
+				 p=C->user_input(a,0,0);
 				 if(p!=0)
 				 {
 					 textBox1->Text=String::Format(" {0:F0}", p);
@@ -2242,6 +2261,28 @@ namespace sudoku {
 				 else
 				 {
 					 textBox1->Text="";
+				 }
+
+
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
 				 }
 
 			 }
@@ -2259,6 +2300,26 @@ namespace sudoku {
 				 {
 					 textBox2->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox3_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 				 Single a= 0;
@@ -2273,6 +2334,26 @@ namespace sudoku {
 				 else
 				 {
 					 textBox3->Text="";
+				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
 				 }
 			 }
 	private: System::Void textBox4_TextChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -2289,6 +2370,26 @@ namespace sudoku {
 				 {
 					 textBox4->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox5_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 				 Single a= 0;
@@ -2303,6 +2404,26 @@ namespace sudoku {
 				 else
 				 {
 					 textBox5->Text="";
+				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
 				 }
 			 }
 	private: System::Void textBox6_TextChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -2319,6 +2440,26 @@ namespace sudoku {
 				 {
 					 textBox6->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox7_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 				 Single a= 0;
@@ -2333,6 +2474,26 @@ namespace sudoku {
 				 else
 				 {
 					 textBox7->Text="";
+				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
 				 }
 			 }
 	private: System::Void textBox8_TextChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -2349,6 +2510,26 @@ namespace sudoku {
 				 {
 					 textBox8->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox9_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 				 Single a= 0;
@@ -2363,6 +2544,26 @@ namespace sudoku {
 				 else
 				 {
 					 textBox9->Text="";
+				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
 				 }
 			 }
 	private: System::Void textBox10_TextChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -2379,6 +2580,26 @@ namespace sudoku {
 				 {
 					 textBox10->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox11_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 				 Single a= 0;
@@ -2393,6 +2614,26 @@ namespace sudoku {
 				 else
 				 {
 					 textBox11->Text="";
+				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
 				 }
 			 }
 	private: System::Void textBox12_TextChanged(System::Object^  sender, System::EventArgs^  e) {
@@ -2409,9 +2650,29 @@ namespace sudoku {
 				 {
 					 textBox12->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox13_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox13->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2424,9 +2685,29 @@ namespace sudoku {
 				 {
 					 textBox13->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox14_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox14->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2439,9 +2720,29 @@ namespace sudoku {
 				 {
 					 textBox14->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox15_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox15->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2454,9 +2755,29 @@ namespace sudoku {
 				 {
 					 textBox15->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox16_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox16->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2469,9 +2790,29 @@ namespace sudoku {
 				 {
 					 textBox16->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox17_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox17->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2484,9 +2825,29 @@ namespace sudoku {
 				 {
 					 textBox17->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox18_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox18->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2499,9 +2860,29 @@ namespace sudoku {
 				 {
 					 textBox18->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox19_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox19->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2514,9 +2895,29 @@ namespace sudoku {
 				 {
 					 textBox19->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox20_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox20->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2529,9 +2930,29 @@ namespace sudoku {
 				 {
 					 textBox20->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox21_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox21->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2544,10 +2965,30 @@ namespace sudoku {
 				 {
 					 textBox21->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 
 			 }
 	private: System::Void textBox22_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox22->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2560,9 +3001,29 @@ namespace sudoku {
 				 {
 					 textBox22->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox23_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox23->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2575,9 +3036,29 @@ namespace sudoku {
 				 {
 					 textBox23->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox24_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox24->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2590,9 +3071,29 @@ namespace sudoku {
 				 {
 					 textBox24->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox25_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox25->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2605,9 +3106,29 @@ namespace sudoku {
 				 {
 					 textBox25->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox26_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox26->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2619,10 +3140,30 @@ namespace sudoku {
 				 else
 				 {
 					 textBox26->Text="";
+				 } 
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
 				 }
 			 }
 	private: System::Void textBox27_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox27->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2635,9 +3176,29 @@ namespace sudoku {
 				 {
 					 textBox27->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox28_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox28->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2650,10 +3211,30 @@ namespace sudoku {
 				 {
 					 textBox28->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 
 			 }
 	private: System::Void textBox29_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox29->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2666,9 +3247,29 @@ namespace sudoku {
 				 {
 					 textBox29->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox30_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox30->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2681,9 +3282,29 @@ namespace sudoku {
 				 {
 					 textBox30->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox31_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox31->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2696,9 +3317,29 @@ namespace sudoku {
 				 {
 					 textBox31->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox32_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox32->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2711,9 +3352,29 @@ namespace sudoku {
 				 {
 					 textBox32->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox33_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox33->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2726,9 +3387,29 @@ namespace sudoku {
 				 {
 					 textBox33->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox34_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox34->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2741,9 +3422,29 @@ namespace sudoku {
 				 {
 					 textBox34->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox35_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox35->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2756,9 +3457,29 @@ namespace sudoku {
 				 {
 					 textBox35->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox36_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox36->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2771,9 +3492,29 @@ namespace sudoku {
 				 {
 					 textBox36->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox37_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox37->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2786,9 +3527,29 @@ namespace sudoku {
 				 {
 					 textBox37->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox38_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox38->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2801,9 +3562,29 @@ namespace sudoku {
 				 {
 					 textBox38->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox39_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox39->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2816,9 +3597,29 @@ namespace sudoku {
 				 {
 					 textBox39->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox40_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox40->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2831,9 +3632,29 @@ namespace sudoku {
 				 {
 					 textBox40->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox41_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox41->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2846,9 +3667,29 @@ namespace sudoku {
 				 {
 					 textBox41->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox42_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox42->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2861,9 +3702,29 @@ namespace sudoku {
 				 {
 					 textBox42->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox43_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox43->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2876,9 +3737,29 @@ namespace sudoku {
 				 {
 					 textBox43->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox44_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox44->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2891,9 +3772,29 @@ namespace sudoku {
 				 {
 					 textBox44->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox45_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox45->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2906,9 +3807,29 @@ namespace sudoku {
 				 {
 					 textBox45->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox46_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox46->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2921,9 +3842,29 @@ namespace sudoku {
 				 {
 					 textBox46->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox47_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox47->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2936,9 +3877,29 @@ namespace sudoku {
 				 {
 					 textBox47->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox48_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox48->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2951,9 +3912,29 @@ namespace sudoku {
 				 {
 					 textBox48->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox49_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox49->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2966,9 +3947,29 @@ namespace sudoku {
 				 {
 					 textBox49->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox50_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				 	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox50->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2981,9 +3982,29 @@ namespace sudoku {
 				 {
 					 textBox50->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox51_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox51->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -2996,9 +4017,29 @@ namespace sudoku {
 				 {
 					 textBox51->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox52_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox52->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3011,9 +4052,29 @@ namespace sudoku {
 				 {
 					 textBox52->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox53_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox53->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3026,9 +4087,29 @@ namespace sudoku {
 				 {
 					 textBox53->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox54_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox54->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3041,9 +4122,29 @@ namespace sudoku {
 				 {
 					 textBox54->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox55_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox55->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3056,9 +4157,29 @@ namespace sudoku {
 				 {
 					 textBox55->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox56_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox56->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3071,10 +4192,30 @@ namespace sudoku {
 				 {
 					 textBox56->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 
 			 }
 	private: System::Void textBox57_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox57->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3087,9 +4228,29 @@ namespace sudoku {
 				 {
 					 textBox57->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox58_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox58->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3102,9 +4263,29 @@ namespace sudoku {
 				 {
 					 textBox58->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox59_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox59->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3117,9 +4298,29 @@ namespace sudoku {
 				 {
 					 textBox59->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox60_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox60->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3132,9 +4333,29 @@ namespace sudoku {
 				 {
 					 textBox60->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox61_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox61->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3147,9 +4368,29 @@ namespace sudoku {
 				 {
 					 textBox61->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox62_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox62->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3162,9 +4403,29 @@ namespace sudoku {
 				 {
 					 textBox62->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox63_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox63->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3177,9 +4438,29 @@ namespace sudoku {
 				 {
 					 textBox63->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox64_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	 	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox64->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3192,9 +4473,29 @@ namespace sudoku {
 				 {
 					 textBox64->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox65_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox65->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3207,9 +4508,29 @@ namespace sudoku {
 				 {
 					 textBox65->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox66_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox66->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3222,9 +4543,29 @@ namespace sudoku {
 				 {
 					 textBox66->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox67_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox67->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3237,9 +4578,29 @@ namespace sudoku {
 				 {
 					 textBox67->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox68_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox68->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3252,9 +4613,29 @@ namespace sudoku {
 				 {
 					 textBox68->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox69_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox69->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3267,9 +4648,29 @@ namespace sudoku {
 				 {
 					 textBox69->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox70_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox70->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3282,9 +4683,29 @@ namespace sudoku {
 				 {
 					 textBox70->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox71_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox71->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3297,9 +4718,29 @@ namespace sudoku {
 				 {
 					 textBox71->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox72_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox72->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3312,9 +4753,29 @@ namespace sudoku {
 				 {
 					 textBox72->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox73_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				   	  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox73->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3327,9 +4788,29 @@ namespace sudoku {
 				 {
 					 textBox73->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox74_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox74->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3342,9 +4823,29 @@ namespace sudoku {
 				 {
 					 textBox74->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox75_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox75->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3357,9 +4858,29 @@ namespace sudoku {
 				 {
 					 textBox75->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox76_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox76->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3372,9 +4893,29 @@ namespace sudoku {
 				 {
 					 textBox76->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox77_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox77->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3387,9 +4928,29 @@ namespace sudoku {
 				 {
 					 textBox77->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox78_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox78->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3402,9 +4963,29 @@ namespace sudoku {
 				 {
 					 textBox78->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox79_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox79->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3417,9 +4998,29 @@ namespace sudoku {
 				 {
 					 textBox79->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox80_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox80->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3432,9 +5033,29 @@ namespace sudoku {
 				 {
 					 textBox80->Text="";
 				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
+				 }
 			 }
 	private: System::Void textBox81_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-				  	    Single a= 0;
+				 Single a= 0;
 				 Single A = Single::TryParse(textBox81->Text,
 					 System::Globalization::NumberStyles::Number,
 					 System::Globalization::NumberFormatInfo::CurrentInfo, a);
@@ -3446,6 +5067,26 @@ namespace sudoku {
 				 else
 				 {
 					 textBox81->Text="";
+				 }
+				 if((C->chack_all()==0)&&(flag==0))
+				 {
+					 flag++;
+					 if (MessageBox::Show("Really delete?","Confirm delete", MessageBoxButtons::RetryCancel,
+						 MessageBoxIcon::Question)
+						 == 
+						 ::System::Windows::Forms::DialogResult::Retry
+						 )
+					 {
+
+						 delete C;
+						 installation();
+						 download();
+					 }
+					 else
+					 {
+						 this->Hide();
+
+					 }
 				 }
 			 }
 	private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {			 }

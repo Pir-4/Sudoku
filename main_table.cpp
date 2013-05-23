@@ -79,6 +79,7 @@ void main_table::print_arr()//вывод основоного массива
 		}
 		cout<<endl;
 	}
+	cout<<endl;
 }
 void main_table::ptint_ref_arr()//вывод проверочного массива
 {
@@ -90,6 +91,7 @@ void main_table::ptint_ref_arr()//вывод проверочного массива
 		}
 		cout<<endl;
 	}
+	cout<<endl;
 }
 bool main_table::shift_cursor(char press, int &i, int &f)//обработка нажатия на сдвиг курсора в масиве
 {
@@ -216,12 +218,18 @@ bool main_table::check_square(const int data,const int i,const int f)//проверка 
 
 int main_table::user_input(const int data,const int i,const int f)//запись  данных в основную и вспомогательную таблицы 
 {
-
-	if(ref_arr[i][f]==1)
+if(ref_arr[i][f]==1)
 	{
 		
 		return data;
 	}
+	if(data==0)
+	{
+		arr[i][f]=0;
+		ref_arr[i][f]=0;
+	}
+	else
+	{
 
 	if(check_retries(data,i,f))
 	{
@@ -235,6 +243,8 @@ int main_table::user_input(const int data,const int i,const int f)//запись  данн
 		ref_arr[i][f]=2;
 		return data;
 	}
+	}
+	return 0;
 
 }
 bool main_table::chack_all()// проверяет всю вспомогательную таблицу на потоврение и заполнение. 
@@ -249,6 +259,7 @@ bool main_table::chack_all()// проверяет всю вспомогательную таблицу на потоврен
 			}
 		}
 	}
+
 	return 0;
 }
 int main_table::get_arr(int i,int f)

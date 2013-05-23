@@ -27,5 +27,6 @@ public:
 	bool  chack_all();// проверяет всю вспомогательную таблицу на потоврение и заполнение. 
 	int get_arr(int, int);//возвращает элементы массива 
 	bool get_ref_arr(int,int);
+
 };
 
